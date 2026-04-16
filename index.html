@@ -158,16 +158,19 @@
     }
   }
 
-  function saveTeacherSettings() {
-    const name = document.getElementById('teacher-name').value.trim();
-    if (!name) { alert('אנא הקלידו שם'); return; }
+ function saveTeacherSettings() {
+    // ... הקוד הקיים ...
+    localStorage.setItem('isTeacher', 'true'); // נשמור שהמשתמש הוא מורה
+    enterPlatform();
+  }
 
-    if (typeof saveTeacherDetails === 'function') {
-      saveTeacherDetails(name, document.getElementById('teacher-email').value, document.getElementById('teacher-whatsapp').value)
-      .then(() => enterPlatform());
-    } else {
-      enterPlatform();
+  function enterPlatform() {
+    if(localStorage.getItem('isTeacher') === 'true') {
+        document.body.classList.add('teacher-mode');
     }
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('lessons-view').style.display = 'block';
+  }
   }
 
   function goToLessons() { enterPlatform(); }
