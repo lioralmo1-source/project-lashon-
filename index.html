@@ -65,7 +65,6 @@
 </head>
 <body>
 
-<!-- LOGIN SCREEN -->
 <section id="login-screen">
   <div class="ls-header">
     <div class="ls-logo-wrap"><span class="ls-logo">📚</span></div>
@@ -116,7 +115,6 @@
   </div>
 </section>
 
-<!-- LESSONS VIEW -->
 <section id="lessons-view" style="display: none; padding: 2rem 1.5rem; background: var(--bg); min-height: 100vh;">
   <div style="max-width: 1000px; margin: 0 auto;">
     <button onclick="backToLogin()" style="margin-bottom: 1.5rem; padding: 8px 16px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'Heebo', sans-serif; font-weight: 700; min-height: 44px;">← חזרה</button>
@@ -133,22 +131,22 @@
         <div class="lesson-title">שיעור 2</div>
         <div class="lesson-meta">בניין קַל (פָּעַל)</div>
       </div>
-      <div class="lesson-card" onclick="openLesson('lesson3_refactored.html')">
+      <div class="lesson-card" onclick="openLesson('lesson3_binyanim_kvedim_v3.html')">
         <div class="lesson-icon">🎯</div>
         <div class="lesson-title">שיעור 3</div>
         <div class="lesson-meta">בניינים כבדים</div>
       </div>
-      <div class="lesson-card" onclick="openLesson('lesson4_refactored.html')">
+      <div class="lesson-card" onclick="openLesson('lesson4_hifil_hufal_v3.html')">
         <div class="lesson-icon">⚡</div>
         <div class="lesson-title">שיעור 4</div>
         <div class="lesson-meta">הִפְעִיל וְהֻפְעַל</div>
       </div>
-      <div class="lesson-card" onclick="openLesson('lesson5_refactored.html')">
+      <div class="lesson-card" onclick="openLesson('lesson5_summary_mruba_v3.html')">
         <div class="lesson-icon">🏁</div>
         <div class="lesson-title">שיעור 5</div>
         <div class="lesson-meta">סיכום ודוגמאות מרובות</div>
       </div>
-      <div class="lesson-card" onclick="openLesson('lesson6_refactored.html')">
+      <div class="lesson-card" onclick="openLesson('lesson6_bagrut_exam_v3.html')">
         <div class="lesson-icon">🎓</div>
         <div class="lesson-title">שיעור 6</div>
         <div class="lesson-meta">בחינת בגרות</div>
@@ -157,14 +155,25 @@
   </div>
 </section>
 
-<!-- Scripts -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js"></script>
 <script src="shared-logic.js"></script>
 
 <script>
+  // פונקציה להצגת/הסתרת פאנל המורה
+  function toggleTeacherSettings() {
+    const panel = document.getElementById('teacher-panel');
+    const teacher = (typeof loadTeacherDetails === 'function') ? loadTeacherDetails() : {};
+    
+    if (panel.classList.contains('open')) {
+      panel.classList.remove('open');
+    } else {
+      panel.classList.add('open');
+      if (teacher.name) document.getElementById('teacher-name').value = teacher.name;
+      if (teacher.email) document.getElementById('teacher-email').value = teacher.email;
+      if (teacher.whatsapp) document.getElementById('teacher-whatsapp').value = teacher.whatsapp;
+    }
+  }
+
+  // שמירת פרטי מורה ומעבר לרשימת השיעורים
   function saveTeacherSettings() {
     const name = document.getElementById('teacher-name').value.trim();
     const email = document.getElementById('teacher-email').value.trim();
@@ -174,39 +183,39 @@
       alert('אנא הקלידו את שם המורה');
       return;
     }
-    if (!email && !whatsapp) {
-      alert('אנא הוסיפו לפחות דוא״ל או מספר וואטסאפ');
-      return;
-    }
 
-    // קריאה לפונקציית השמירה מתוך shared-logic.js
-    saveTeacherDetails(name, email, whatsapp).then(success => {
-      alert('✓ פרטי המורה נשמרו בהצלחה!');
-      // הקוד שמעביר אותך לרשימת השיעורים:
-      document.getElementById('login-screen').style.display = 'none';
-      document.getElementById('lessons-view').style.display = 'block';
-    }).catch(err => {
-      // גם אם יש שגיאה קטנה בחיבור, ניתן לך להיכנס
-      alert('שמרנו את הפרטים בהתקן המקומי');
-      document.getElementById('login-screen').style.display = 'none';
-      document.getElementById('lessons-view').style.display = 'block';
-    });
+    if (typeof saveTeacherDetails === 'function') {
+      saveTeacherDetails(name, email, whatsapp).then(() => {
+        alert('✓ הפרטים נשמרו בהצלחה!');
+        enterPlatform();
+      }).catch(() => {
+        enterPlatform();
+      });
+    } else {
+      enterPlatform();
+    }
   }
-  
+
   function goToLessons() {
+    enterPlatform();
+  }
+
+  function enterPlatform() {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('lessons-view').style.display = 'block';
+    window.scrollTo(0, 0);
   }
-  
+
   function backToLogin() {
     document.getElementById('lessons-view').style.display = 'none';
     document.getElementById('login-screen').style.display = 'flex';
   }
-  
-function openLesson(filename) {
-  // הפונקציה מקבלת את שם הקובץ ומעבירה אליו את המשתמש
-  window.location.href = filename;
-}
+
+  function openLesson(filename) {
+    if (filename) {
+      window.location.href = filename;
+    }
+  }
 </script>
 </body>
 </html>
