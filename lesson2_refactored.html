@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>שיעור 2 | בניין קַל | כיתה י׳</title>
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO HEADER -->
+<header class="hero text-white py-10 px-5" style="position:relative;z-index:1;">
+  <div class="max-w-5xl mx-auto relative" style="z-index:2;">
+    <div class="flex items-start justify-between flex-wrap gap-4">
+      <div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+          <span class="badge" style="background:rgba(168,212,240,.2);color:#a8d4f0;border:1px solid rgba(168,212,240,.4);">כיתה י׳</span>
+          <span class="badge" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);">לשון עברית</span>
+          <span class="badge" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);">יחידה 1 — מערכת הפועל</span>
+          <span class="badge" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);">שיעור 2 מתוך 6</span>
+          <span class="badge" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);">45 דקות</span>
+        </div>
+        <h1 style="font-family:'Secular One',sans-serif;font-size:clamp(1.6rem,4vw,2.7rem);line-height:1.15;margin-bottom:10px;">
+          בניין קַל (פָּעַל)
+          <span style="display:block;font-size:clamp(1rem,2.5vw,1.5rem);color:#a8d4f0;margin-top:4px;">עבר · הווה · עתיד · ניקוד ומשמעות</span>
+        </h1>
+        <p style="color:rgba(255,255,255,.65);font-size:.97rem;max-width:500px;">הבניין הבסיסי ביותר בעברית — שלמות מוחלטת בשלושה זמנים</p>
+      </div>
+      <div style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:16px 20px;min-width:185px;text-align:center;" class="no-print">
+        <div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-bottom:4px;letter-spacing:.1em;">⏱ טיימר שיעור</div>
+        <div id="timer-display" style="font-size:1.8rem;font-weight:900;color:#a8d4f0;font-family:'Secular One',sans-serif;">45:00</div>
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:10px;">
+          <button onclick="startTimer()" style="background:#a8d4f0;color:#0c2040;border:none;border-radius:7px;padding:5px 14px;font-family:'Heebo',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;min-height:40px;">▶ התחל</button>
+          <button onclick="resetTimer()" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2);border-radius:7px;padding:5px 10px;font-family:'Heebo',sans-serif;font-size:.78rem;cursor:pointer;min-height:40px;">↺</button>
+        </div>
+        <div id="phase-ind" style="font-size:.74rem;color:#a8d4f0;margin-top:8px;min-height:1.2em;"></div>
+      </div>
+    </div>
+    <div style="margin-top:22px;" class="no-print">
+      <div style="display:flex;justify-content:space-between;font-size:.71rem;color:rgba(255,255,255,.45);margin-bottom:5px;">
+        <span>התקדמות השיעור</span><span id="prog-pct">0%</span>
+      </div>
+      <div style="height:6px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,.15);">
+        <div class="prog-fill" id="prog-fill" style="width:0%;height:100%;background:linear-gradient(90deg,#a8d4f0,#fbbf24);border-radius:999px;transition:width 0.55s ease;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:.67rem;color:rgba(255,255,255,.3);margin-top:4px;">
+        <span>פתיחה (5׳)</span><span>רכישה (10׳)</span><span>הדגמה (10׳)</span><span>תרגול (15׳)</span><span>סיכום (5׳)</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAVIGATION TABS -->
+<nav class="no-print">
+  <div class="nav-inner">
+    <button class="tab-btn active" onclick="showTab('tt',this)">📋 מדריך המורה</button>
+    <button class="tab-btn" onclick="showTab('th',this)">📖 תיאוריה</button>
+    <button class="tab-btn" onclick="showTab('tw',this)">✏️ דף עבודה</button>
+    <button class="tab-btn" onclick="showTab('ta',this)">🔑 פתרונות</button>
+    <button onclick="window.print()" style="margin-right:auto;padding:8px 16px;font-size:.8rem;color:var(--text-muted);background:transparent;border:none;cursor:pointer;white-space:nowrap;min-height:44px;">🖨️ הדפס</button>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="max-w-5xl mx-auto px-4 py-8">
+
+<!-- ═══ TAB 1: TEACHER GUIDE ═══ -->
+<div id="tt" class="tab-pane active">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+    <div class="card text-center" style="border-top:3px solid var(--navy-lt);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">🎯</div>
+      <div style="font-size:.82rem;font-weight:700;color:var(--navy-lt);">מטרה</div>
+      <div style="font-size:.78rem;color:var(--text-muted);margin-top:3px;">נטיית קַל בשלושה זמנים; זיהוי גוף/מין/מספר; ניתוח בהקשר</div>
+    </div>
+    <div class="card text-center" style="border-top:3px solid var(--teal);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">🔗</div>
+      <div style="font-size:.82rem;font-weight:700;color:var(--teal);">קודם לשיעור</div>
+      <div style="font-size:.78rem;color:var(--text-muted);margin-top:3px;">שיעור 1 — שורש ושבעת הבניינים</div>
+    </div>
+    <div class="card text-center" style="border-top:3px solid var(--sun);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">🛠️</div>
+      <div style="font-size:.82rem;font-weight:700;color:var(--sun);">כלים</div>
+      <div style="font-size:.78rem;color:var(--text-muted);margin-top:3px;">טבלת נטייה, לוח, כרטיסי גוף</div>
+    </div>
+    <div class="card text-center" style="border-top:3px solid var(--danger);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">📐</div>
+      <div style="font-size:.82rem;font-weight:700;color:var(--danger);">מיצ״ב</div>
+      <div style="font-size:.78rem;color:var(--text-muted);margin-top:3px;">D2.1, D2.3, R2.2, W1.3</div>
+    </div>
+  </div>
+
+  <h2 class="teal-h">📍 מהלך השיעור</h2>
+
+  <div style="display:flex;gap:16px;margin-bottom:20px;align-items:flex-start;">
+    <div style="width:50px;height:50px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">5׳</div>
+    <div>
+      <span class="badge" style="background:#fdecea;color:var(--red);border:1px solid var(--red);margin-bottom:8px;">🔥 פתיחה — אתגר "שיר הגופים"</span>
+      <h3 style="font-weight:700;font-size:1rem;margin-bottom:7px;">מה הצורה ל-"אני", "את", "אתם"?</h3>
+      <p style="font-size:.9rem;color:var(--text-mid);">כתבו על הלוח: <strong>כָּתַב</strong> (שורש: כ.ת.ב, בניין: קַל, עבר ג׳ז׳י׳). בקשו מהתלמידים לנייד: "מה הצורה ל-אני? את? אתם?" — מי עונה נכון ראשון "זוכה".</p>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:16px;margin-bottom:20px;align-items:flex-start;">
+    <div style="width:50px;height:50px;border-radius:50%;background:var(--navy-lt);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">10׳</div>
+    <div>
+      <span class="badge" style="background:#e7f3ff;color:var(--navy-lt);border:1px solid var(--navy-lt);margin-bottom:8px;">📚 רכישה — טבלת נטייה</span>
+      <h3 style="font-weight:700;font-size:1rem;margin-bottom:7px;">שלושת הזמנים — מקביל ומשולב</h3>
+      <p style="font-size:.9rem;color:var(--text-mid);">עברו על לשונית "תיאוריה". הדגישו את שלוש "מלכודות הניקוד": (1) <strong>כָּתַבְתְּ</strong> — ת עם שווא. (2) <strong>תִּכְתֹּב</strong> — שייך גם לאתה וגם להיא. (3) <strong>כְּתַבְתֶּם</strong> — חיריק בפ"פ.</p>
+    </div>
+  </div>
+
+  <div class="theory-block tip">
+    <div class="block-title">💡 שלוש "מלכודות ניקוד" בבניין קַל</div>
+    <p style="font-size:.88rem;"><strong>מלכודת א׳:</strong> <strong>כָּתַבְתְּ</strong> — ת עם שווא = "את" (לא "אתה").<br><strong>מלכודת ב׳:</strong> <strong>תִּכְתֹּב</strong> — שייך גם ל"אתה" וגם ל"היא" — ההקשר קובע.<br><strong>מלכודת ג׳:</strong> <strong>כְּתַבְתֶּם</strong> — חיריק בפ"פ, לא קמץ!</p>
+  </div>
+</div>
+
+<!-- ═══ TAB 2: THEORY ═══ -->
+<div id="th" class="tab-pane">
+  <h2 class="teal-h" style="font-size:1.35rem;">📚 בניין קַל (פָּעַל) — תיאוריה מלאה</h2>
+
+  <div class="theory-block">
+    <div class="block-title">ℹ️ מאפייני הבניין</div>
+    <div class="article-body">
+      <p>בניין קַל הוא הפשוט והנפוץ ביותר בעברית — ה"בסיס" שממנו נגזרים שאר הבניינים. כאשר השורש כ.ת.ב מוטה בבניין קַל בזמן עבר, נקבל <strong>כָּתַב</strong> (שורש: כ.ת.ב, בניין: קַל, עבר, גוף שלישי זכר יחיד — תבנית: פָּעַל). בהווה: <strong>כּוֹתֵב</strong> (שורש: כ.ת.ב, בניין: קַל, הווה, זכר יחיד — תבנית: פּוֹעֵל). בעתיד: <strong>יִכְתֹּב</strong> (שורש: כ.ת.ב, בניין: קַל, עתיד, גוף שלישי זכר יחיד — תבנית: יִפְעֹל).</p>
+    </div>
+  </div>
+
+  <h3 style="font-weight:700;font-size:1.05rem;margin:24px 0 12px;">זמן עבר — שורש כ.ת.ב</h3>
+  <div class="mobile-scroll">
+    <table class="ctable">
+      <thead><tr><th>גוף</th><th>צורת הפועל</th><th>ניתוח</th></tr></thead>
+      <tbody>
+        <tr><td>אני</td><td style="font-weight:700;color:var(--navy-lt);">כָּתַבְתִּי</td><td>תִּי = אני</td></tr>
+        <tr><td>אתה</td><td style="font-weight:700;color:var(--navy-lt);">כָּתַבְתָּ</td><td>ת + קמץ = אתה ז׳</td></tr>
+        <tr><td>את</td><td style="font-weight:700;color:var(--danger);">כָּתַבְתְּ</td><td>ת + שווא = את נ׳ ⚠️</td></tr>
+        <tr><td>הוא</td><td style="font-weight:700;color:var(--navy-lt);">כָּתַב</td><td>ללא סיומת = הוא</td></tr>
+        <tr><td>היא</td><td style="font-weight:700;color:var(--navy-lt);">כָּתְבָה</td><td>ה = היא</td></tr>
+        <tr><td>אנחנו</td><td style="font-weight:700;color:var(--navy-lt);">כָּתַבְנוּ</td><td>נוּ = אנחנו</td></tr>
+        <tr><td>אתם</td><td style="font-weight:700;color:var(--danger);">כְּתַבְתֶּם</td><td>חיריק בפ"פ ⚠️</td></tr>
+        <tr><td>הם</td><td style="font-weight:700;color:var(--navy-lt);">כָּתְבוּ</td><td>וּ = הם</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-weight:700;font-size:1.05rem;margin:24px 0 12px;">זמן הווה — ארבע צורות</h3>
+  <div class="mobile-scroll">
+    <table class="ctable">
+      <thead><tr><th>גוף</th><th>צורת הפועל</th><th>תבנית</th><th>הערה</th></tr></thead>
+      <tbody>
+        <tr><td>זכר יחיד</td><td style="font-weight:700;color:var(--navy-lt);">כּוֹתֵב</td><td>פּוֹעֵל</td><td>וּ + צֵרֵה = מאפיין</td></tr>
+        <tr><td>נקבה יחיד</td><td style="font-weight:700;color:var(--navy-lt);">כּוֹתֶבֶת</td><td>פּוֹעֶלֶת</td><td>סיומת –ת</td></tr>
+        <tr><td>זכר רבים</td><td style="font-weight:700;color:var(--navy-lt);">כּוֹתְבִים</td><td>פּוֹעֲלִים</td><td>–ים</td></tr>
+        <tr><td>נקבה רבות</td><td style="font-weight:700;color:var(--navy-lt);">כּוֹתְבוֹת</td><td>פּוֹעֲלוֹת</td><td>–ות</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="theory-block tip" style="margin-top:1.5rem;">
+    <div class="block-title">💡 כלל: חיריק בפ"פ = "אתם"</div>
+    <p style="font-size:.9rem;"><strong>כְּתַבְתֶּם</strong> — כל מה שצריך לזכור: כשהסיומת היא –תֶּם או –תֶּן, הפ"פ משנה את ניקודו לחיריק.</p>
+  </div>
+</div>
+
+<!-- ═══ TAB 3: WORKSHEET ═══ -->
+<div id="tw" class="tab-pane">
+  <div class="card" style="background:linear-gradient(135deg,var(--surface2),var(--surface));margin-bottom:20px;">
+    <h2 style="font-family:'Secular One',sans-serif;font-size:1.2rem;color:var(--text);margin-bottom:16px;">✏️ דף עבודה — שיעור 2: בניין קַל</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div>
+        <label style="font-size:.8rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">שם מלא</label>
+        <input type="text" id="sname" placeholder="הקלד/י שם..." />
+      </div>
+      <div>
+        <label style="font-size:.8rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">כיתה</label>
+        <input type="text" id="sclass" placeholder="לדוגמה: י׳3" />
+      </div>
+      <div>
+        <label style="font-size:.8rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">תאריך</label>
+        <input type="text" id="sdate" placeholder="יום/חודש/שנה" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="card" style="border-right:4px solid var(--navy-lt);">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div class="q-num">1</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;">זיהוי פעלים בבניין קַל</div>
+        <div style="font-size:.84rem;color:var(--text-muted);">5 פעלים × 2 נקודות = 10 נקודות</div>
+      </div>
+    </div>
+    <p style="font-size:.91rem;margin-bottom:14px;color:var(--text-mid);">זהו פעלים בבניין קַל בלבד. לכל פועל: ציינו שורש, זמן, גוף.</p>
+    <div style="background:#f4f7fd;border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:14px;font-size:.95rem;line-height:2;">
+      <p><strong>א.</strong> "הם <span class="hl-kal">גָּלְשׁוּ</span> שעתיים."</p>
+      <p><strong>ב.</strong> "ליאב <span class="hl-kal">פָּתַח</span> את האפליקציה."</p>
+      <p><strong>ג.</strong> "נועה <span class="hl-kal">לוֹמֶדֶת</span> עריכה."</p>
+      <p><strong>ד.</strong> "הוועדה <span class="hl-kal">תַּגְבִּיל</span> הטלפון." (⚠️ בחרו זהיר!)</p>
+      <p><strong>ה.</strong> "אנחנו <span class="hl-kal">נִשְׁאַר</span> בבית."</p>
+    </div>
+    <div class="grid grid-cols-1 gap-2">
+      <div><input type="text" id="q1p1" placeholder="פועל 1: ___ | שורש: _-_-_ | זמן: ___ | גוף: ___" /></div>
+      <div><input type="text" id="q1p2" placeholder="פועל 2: ___ | שורש: _-_-_ | זמן: ___ | גוף: ___" /></div>
+      <div><input type="text" id="q1p3" placeholder="פועל 3: ___ | שורש: _-_-_ | זמן: ___ | גוף: ___" /></div>
+      <div><input type="text" id="q1p4" placeholder="פועל 4: ___ | שורש: _-_-_ | זמן: ___ | גוף: ___" /></div>
+      <div><input type="text" id="q1p5" placeholder="פועל 5: ___ | שורש: _-_-_ | זמן: ___ | גוף: ___" /></div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="card" style="border-right:4px solid var(--teal);">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div class="q-num" style="background:var(--teal);">2</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;">השלמת טבלת נטייה — שורש ש.מ.ע</div>
+        <div style="font-size:.84rem;color:var(--text-muted);">3 זמנים × 3 גופים = 9 תאים</div>
+      </div>
+    </div>
+    <p style="font-size:.91rem;margin-bottom:14px;color:var(--text-mid);">השלימו טבלה זו עם ניקוד מלא:</p>
+    <div class="mobile-scroll">
+      <table class="ctable">
+        <thead><tr><th>גוף</th><th>עבר</th><th>הווה</th><th>עתיד</th></tr></thead>
+        <tbody>
+          <tr><td>אני</td><td><input type="text" id="t1" placeholder="___" /></td><td>—</td><td><input type="text" id="t3" placeholder="___" /></td></tr>
+          <tr><td>אתה/היא</td><td><input type="text" id="t4" placeholder="___" /></td><td><input type="text" id="t5" placeholder="___" /></td><td><input type="text" id="t6" placeholder="___" /></td></tr>
+          <tr><td>הם</td><td><input type="text" id="t7" placeholder="___" /></td><td><input type="text" id="t8" placeholder="___" /></td><td><input type="text" id="t9" placeholder="___" /></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="card" style="border-right:4px solid var(--sun);">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div class="q-num" style="background:var(--sun);">3</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;">הטיית פועל בהקשר — שורש פ.ת.ח</div>
+        <div style="font-size:.84rem;color:var(--text-muted);">4 משפטים × 2 נקודות = 8 נקודות</div>
+      </div>
+    </div>
+    <p style="font-size:.91rem;margin-bottom:14px;color:var(--text-mid);">הכניסו צורת הפועל הנכונה:</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div><label style="font-size:.86rem;font-weight:700;color:var(--sun);display:block;margin-bottom:4px;">א. "אני _____ את האפליקציה." (עבר)</label><input type="text" id="q3a" /></div>
+      <div><label style="font-size:.86rem;font-weight:700;color:var(--sun);display:block;margin-bottom:4px;">ב. "הבנות _____ את הפיד כל ערב." (הווה)</label><input type="text" id="q3b" /></div>
+      <div><label style="font-size:.86rem;font-weight:700;color:var(--sun);display:block;margin-bottom:4px;">ג. "הילדים לא _____ טלפון בשיעורים." (עתיד, ג׳ זכר רבים)</label><input type="text" id="q3c" /></div>
+      <div><label style="font-size:.86rem;font-weight:700;color:var(--sun);display:block;margin-bottom:4px;">ד. "נועה _____ קריירה חדשה." (עבר, ג׳ נקבה)</label><input type="text" id="q3d" /></div>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="card no-print" style="background:linear-gradient(135deg,var(--surface2),var(--surface));border:1.5px solid var(--navy-lt);text-align:center;">
+    <div style="font-size:2rem;margin-bottom:8px;">📤</div>
+    <h3 style="font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:6px;">שליחה למורה</h3>
+    <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:16px;">לחצו לאחר מילוי דף העבודה</p>
+    <button onclick="submitWS()" style="background:var(--navy-lt);color:#fff;border:none;padding:12px 36px;border-radius:10px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;min-height:44px;">שלח/י דף עבודה ✓</button>
+  </div>
+</div>
+
+<!-- ═══ TAB 4: ANSWERS ═══ -->
+<div id="ta" class="tab-pane">
+  <div style="background:linear-gradient(135deg,var(--surface2),var(--surface));border:1.5px solid var(--navy-lt);border-radius:14px;padding:18px 20px;margin-bottom:24px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="font-size:2rem;">🔑</div>
+      <div>
+        <div style="font-weight:800;font-size:1rem;">מדריך פתרונות</div>
+        <div style="font-size:.82rem;color:var(--text-muted);">לשימוש מורה בלבד</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--navy);margin-bottom:12px;">שאלה 1 — תשובות דוגמא</h3>
+  <div class="ai"><strong>גָּלְשׁוּ</strong> → שורש: ג.ל.ש | בניין: קַל | עבר | ג׳ זכר רבים</div>
+  <div class="ai"><strong>פָּתַח</strong> → שורש: פ.ת.ח | בניין: קַל | עבר | ג׳ זכר יחיד</div>
+  <div class="ai"><strong>לוֹמֶדֶת</strong> → שורש: ל.מ.ד | בניין: קַל | הווה | נקבה יחיד</div>
+  <div class="ai danger">⚠️ <strong>תַּגְבִּיל</strong> → הִפְעִיל, לא קַל</div>
+  <div class="ai"><strong>נִשְׁאַר</strong> → בדוק הקשר — כאן חייב הִפְעִיל או נִפְעַל</div>
+
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--teal);margin:24px 0 12px;">שאלה 2 — שורש ש.מ.ע</h3>
+  <div class="overflow-x-auto">
+    <table class="ctable">
+      <thead><tr><th>גוף</th><th style="color:#0d7a6a;">עבר</th><th style="color:#0d7a6a;">הווה</th><th style="color:#0d7a6a;">עתיד</th></tr></thead>
+      <tbody>
+        <tr><td>אני</td><td>שָׁמַעְתִּי</td><td>—</td><td>אֶשְׁמַע</td></tr>
+        <tr><td>אתה/היא</td><td>שָׁמַעְתָּ / שָׁמְעָה</td><td>שׁוֹמֵעַ / שׁוֹמַעַת</td><td>תִּשְׁמַע</td></tr>
+        <tr><td>הם</td><td>שָׁמְעוּ</td><td>שׁוֹמְעִים</td><td>יִשְׁמְעוּ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--sun);margin:24px 0 12px;">שאלה 3 — שורש פ.ת.ח</h3>
+  <div class="ai sun"><strong>א.</strong> פָּתַחְתִּי (עבר, אני)</div>
+  <div class="ai sun"><strong>ב.</strong> פּוֹתְחוֹת (הווה, נקבה רבות)</div>
+  <div class="ai sun"><strong>ג.</strong> יִפְתְּחוּ (עתיד, ג׳ זכר רבים)</div>
+  <div class="ai sun"><strong>ד.</strong> פָּתְחָה (עבר, ג׳ נקבה יחיד)</div>
+</div>
+
+</main>
+
+<!-- SCRIPTS -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js"></script>
+<script src="shared-logic.js"></script>
+
+</body>
+</html>

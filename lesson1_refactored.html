@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>שיעור 1 | השורש ושבעת הבניינים | כיתה י׳</title>
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO HEADER -->
+<header class="hero text-white py-10 px-5" style="position:relative;z-index:1;">
+  <div class="max-w-5xl mx-auto relative" style="z-index:2;">
+    <div class="flex items-start justify-between flex-wrap gap-4">
+      <div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+          <span class="badge" style="background:rgba(168,212,240,.2);color:#a8d4f0;border:1px solid rgba(168,212,240,.4);">כיתה י׳</span>
+          <span class="badge" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);">לשון עברית</span>
+          <span class="badge" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);">יחידה 1 — מערכת הפועל</span>
+          <span class="badge" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);">שיעור 1 מתוך 6</span>
+          <span class="badge" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);">45 דקות</span>
+        </div>
+        <h1 style="font-family:'Secular One',sans-serif;font-size:clamp(1.6rem,4vw,2.7rem);line-height:1.15;margin-bottom:10px;">
+          השורש ושבעת הבניינים
+          <span style="display:block;font-size:clamp(1rem,2.5vw,1.5rem);color:#a8d4f0;margin-top:4px;">מושגי יסוד · זיהוי · ניתוח</span>
+        </h1>
+        <p style="color:rgba(255,255,255,.65);font-size:.97rem;max-width:500px;">הכוח של שלושה עיצורים — כיצד שורש אחד מייצר עולם שלם של מילים</p>
+      </div>
+      <div style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:16px 20px;min-width:185px;text-align:center;" class="no-print">
+        <div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-bottom:4px;letter-spacing:.1em;">⏱ טיימר שיעור</div>
+        <div id="timer-display" style="font-size:1.8rem;font-weight:900;color:#a8d4f0;font-family:'Secular One',sans-serif;">45:00</div>
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:10px;">
+          <button onclick="startTimer()" style="background:#a8d4f0;color:#0c2040;border:none;border-radius:7px;padding:5px 14px;font-family:'Heebo',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;min-height:40px;">▶ התחל</button>
+          <button onclick="resetTimer()" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2);border-radius:7px;padding:5px 10px;font-family:'Heebo',sans-serif;font-size:.78rem;cursor:pointer;min-height:40px;">↺</button>
+        </div>
+        <div id="phase-ind" style="font-size:.74rem;color:#a8d4f0;margin-top:8px;min-height:1.2em;"></div>
+      </div>
+    </div>
+    <div style="margin-top:22px;" class="no-print">
+      <div style="display:flex;justify-content:space-between;font-size:.71rem;color:rgba(255,255,255,.45);margin-bottom:5px;">
+        <span>התקדמות השיעור</span><span id="prog-pct">0%</span>
+      </div>
+      <div style="height:6px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,.15);">
+        <div class="prog-fill" id="prog-fill" style="width:0%;height:100%;background:linear-gradient(90deg,#a8d4f0,#fbbf24);border-radius:999px;transition:width 0.55s ease;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:.67rem;color:rgba(255,255,255,.3);margin-top:4px;">
+        <span>פתיחה (5׳)</span><span>רכישה (10׳)</span><span>הדגמה (10׳)</span><span>תרגול (15׳)</span><span>סיכום (5׳)</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAVIGATION TABS -->
+<nav class="no-print">
+  <div class="nav-inner">
+    <button class="tab-btn active" onclick="showTab('tt',this)">📋 מדריך המורה</button>
+    <button class="tab-btn" onclick="showTab('th',this)">📖 תיאוריה</button>
+    <button class="tab-btn" onclick="showTab('tw',this)">✏️ דף עבודה</button>
+    <button class="tab-btn" onclick="showTab('ta',this)">🔑 פתרונות</button>
+    <button onclick="window.print()" style="margin-right:auto;padding:8px 16px;font-size:.8rem;color:var(--text-muted);background:transparent;border:none;cursor:pointer;white-space:nowrap;min-height:44px;">🖨️ הדפס</button>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="max-w-5xl mx-auto px-4 py-8">
+
+<!-- ═══ TAB 1: TEACHER GUIDE ═══ -->
+<div id="tt" class="tab-pane active">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+    <div class="card text-center" style="border-top:3px solid var(--navy-lt);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">🎯</div>
+      <div style="font-size:.82rem;font-weight:700;color:var(--navy-lt);">מטרה</div>
+      <div style="font-size:.78rem;color:var(--text-muted);margin-top:3px;">זיהוי שורש ובניין; הבנת 7 הבניינים ותפקידיהם</div>
+    </div>
+    <div class="card text-center" style="border-top:3px solid var(--teal);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">🔗</div>
+      <div style="font-size:.82rem;font-weight:700;color:var(--teal);">קודם לשיעור</div>
+      <div style="font-size:.78rem;color:var(--text-muted);margin-top:3px;">מבוא לדקדוק עברי — כיתה ח'-ט'</div>
+    </div>
+    <div class="card text-center" style="border-top:3px solid var(--sun);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">🛠️</div>
+      <div style="font-size:.82rem;font-weight:700;color:var(--sun);">כלים</div>
+      <div style="font-size:.78rem;color:var(--text-muted);margin-top:3px;">לוח, כרטיסיות שורשים, טאבלות</div>
+    </div>
+    <div class="card text-center" style="border-top:3px solid var(--danger);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">📐</div>
+      <div style="font-size:.82rem;font-weight:700;color:var(--danger);">מיצ״ב</div>
+      <div style="font-size:.78rem;color:var(--text-muted);margin-top:3px;">D2.1, D2.4, R2.2, W1.3</div>
+    </div>
+  </div>
+
+  <h2 class="teal-h">📍 מהלך השיעור</h2>
+
+  <div style="display:flex;gap:16px;margin-bottom:20px;align-items:flex-start;">
+    <div style="width:50px;height:50px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">5׳</div>
+    <div>
+      <span class="badge" style="background:#fdecea;color:var(--red);border:1px solid var(--red);margin-bottom:8px;">🔥 פתיחה — "כוח שלוש האותיות"</span>
+      <h3 style="font-weight:700;font-size:1rem;margin-bottom:7px;">פעילות גירוי — שורש כ.ת.ב</h3>
+      <p style="font-size:.9rem;color:var(--text-mid);">כתבו על הלוח: <strong>כ - ת - ב</strong>. בקשו מהתלמידים לצעוק מילים שנגזרות ממנו — רשמו עד 20 מילים. שאלו: "מה המשותף לכולן?"</p>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:16px;margin-bottom:20px;align-items:flex-start;">
+    <div style="width:50px;height:50px;border-radius:50%;background:var(--navy-lt);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">10׳</div>
+    <div>
+      <span class="badge" style="background:#e7f3ff;color:var(--navy-lt);border:1px solid var(--navy-lt);margin-bottom:8px;">📚 רכישה — הגדרות ותפקידים</span>
+      <h3 style="font-weight:700;font-size:1rem;margin-bottom:7px;">שורש, בניין ותפקידו הסמנטי</h3>
+      <p style="font-size:.9rem;color:var(--text-mid);">עברו על לשונית "תיאוריה". הדגישו: שינוי בניין = שינוי משמעות.</p>
+    </div>
+  </div>
+
+  <div class="theory-block tip">
+    <div class="block-title">💡 טיפ פדגוגי</div>
+    <p style="font-size:.88rem;">הפעילות הזו חושפת שמשפחה אחת של שורש מייצרת מגוון עצום של משמעויות — וזהו ליבת השיעור כולו.</p>
+  </div>
+</div>
+
+<!-- ═══ TAB 2: THEORY ═══ -->
+<div id="th" class="tab-pane">
+  <h2 class="teal-h" style="font-size:1.35rem;">📚 השורש ושבעת הבניינים — תיאוריה מלאה</h2>
+
+  <div class="theory-block" style="margin-bottom:1.5rem;">
+    <div class="block-title">ℹ️ מהו שורש?</div>
+    <div class="article-body">
+      <p>השורש הוא ה"לב" של המילה העברית — קבוצה של שלושה עיצורים (לעיתים ארבעה) הנושאים משמעות בסיסית משותפת. השורש עצמו אינו נהגה לבדו, אך הוא הגרעין שממנו צומחות עשרות מילים.</p>
+    </div>
+  </div>
+
+  <div class="theory-block teal">
+    <div class="block-title">ℹ️ מהו בניין?</div>
+    <div class="article-body">
+      <p>הבניין הוא המסגרת הדקדוקית שבתוכה "מוזג" השורש כדי ליצור פועל. לכל אחד מ<strong>שבעת הבניינים</strong> תפקיד סמנטי אופייני משלו.</p>
+    </div>
+  </div>
+
+  <h3 style="font-weight:700;font-size:1.05rem;margin:24px 0 12px;">שבעת הבניינים — טבלת סיכום</h3>
+  <div class="mobile-scroll">
+    <table class="ctable">
+      <thead><tr><th>#</th><th>שם הבניין</th><th>צורת עבר ג׳ז׳י׳</th><th>תפקיד סמנטי</th><th>דוגמה</th></tr></thead>
+      <tbody>
+        <tr><td class="b-kal">1</td><td><strong>קַל</strong></td><td>פָּעַל</td><td>פעולה בסיסית</td><td><strong>כָּתַב</strong></td></tr>
+        <tr><td class="b-nif">2</td><td><strong>נִפְעַל</strong></td><td>נִפְעַל</td><td>סביל / הדדי</td><td><strong>נִכְתַּב</strong></td></tr>
+        <tr><td class="b-piel">3</td><td><strong>פִּיעֵל</strong></td><td>פִּיעֵל</td><td>עצימות / גרימה</td><td><strong>כִּתֵּב</strong></td></tr>
+        <tr><td class="b-pual">4</td><td><strong>פֻּעַל</strong></td><td>פֻּעַל</td><td>סביל של פִּיעֵל</td><td><strong>כֻּתַּב</strong></td></tr>
+        <tr><td class="b-hif">5</td><td><strong>הִפְעִיל</strong></td><td>הִפְעִיל</td><td>גרימה</td><td><strong>הִכְתִּיב</strong></td></tr>
+        <tr><td class="b-huf">6</td><td><strong>הֻפְעַל</strong></td><td>הֻפְעַל</td><td>סביל של הִפְעִיל</td><td><strong>הֻכְתַּב</strong></td></tr>
+        <tr><td class="b-hit">7</td><td><strong>הִתְפַּעֵל</strong></td><td>הִתְפַּעֵל</td><td>הדדיות / עצמי</td><td><strong>הִתְכַּתֵּב</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="theory-block tip" style="margin-top:1.5rem;">
+    <div class="block-title">💡 כלל הזהב לניתוח פועל — שלושה שלבים</div>
+    <p style="font-size:.9rem;"><strong>שלב א׳ — הפשט:</strong> הסר את כל אותיות השירות.<br><strong>שלב ב׳ — זהה:</strong> לאיזה בניין הצורה תואמת?<br><strong>שלב ג׳ — בדוק:</strong> האם המשמעות הגיונית?</p>
+  </div>
+</div>
+
+<!-- ═══ TAB 3: WORKSHEET ═══ -->
+<div id="tw" class="tab-pane">
+  <div class="card" style="background:linear-gradient(135deg,var(--surface2),var(--surface));margin-bottom:20px;">
+    <h2 style="font-family:'Secular One',sans-serif;font-size:1.2rem;color:var(--text);margin-bottom:16px;">✏️ דף עבודה — שיעור 1: השורש ושבעת הבניינים</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div>
+        <label style="font-size:.8rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">שם מלא</label>
+        <input type="text" id="sname" placeholder="הקלד/י שם..." />
+      </div>
+      <div>
+        <label style="font-size:.8rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">כיתה</label>
+        <input type="text" id="sclass" placeholder="לדוגמה: י׳3" />
+      </div>
+      <div>
+        <label style="font-size:.8rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">תאריך</label>
+        <input type="text" id="student-date" placeholder="יום/חודש/שנה" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="card" style="border-right:4px solid var(--navy-lt);">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div class="q-num">1</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;">זיהוי שורש ובניין</div>
+        <div style="font-size:.84rem;color:var(--text-muted);">8 שורשים — 3 נקודות לכל אחד</div>
+      </div>
+    </div>
+    <p style="font-size:.91rem;margin-bottom:14px;color:var(--text-mid);">לכל פועל — כתבו את <strong>השורש</strong> ואת <strong>הבניין</strong>:</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">א. <strong>מְסַיְּעִים</strong></label><input type="text" id="q1a" placeholder="שורש: _-_-_ | בניין: ___" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ב. <strong>מִתְגַּבֶּשֶׁת</strong></label><input type="text" id="q1b" placeholder="שורש: _-_-_ | בניין: ___" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ג. <strong>הֻשְׂגָה</strong></label><input type="text" id="q1c" placeholder="שורש: _-_-_ | בניין: ___" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ד. <strong>מַחְלִיפָה</strong></label><input type="text" id="q1d" placeholder="שורש: _-_-_ | בניין: ___" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ה. <strong>מְחוֹקְקוֹת</strong></label><input type="text" id="q1e" placeholder="שורש: _-_-_ | בניין: ___" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ו. <strong>יִשְׁרֹת</strong></label><input type="text" id="q1f" placeholder="שורש: _-_-_ | בניין: ___" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ז. <strong>מִסְתַּמְּכִים</strong></label><input type="text" id="q1g" placeholder="שורש: _-_-_ | בניין: ___" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ח. <strong>הִזְהִיר</strong></label><input type="text" id="q1h" placeholder="שורש: _-_-_ | בניין: ___" /></div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="card" style="border-right:4px solid var(--teal);">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div class="q-num" style="background:var(--teal);">2</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;">משפחת מילים — שורש ל.מ.ד</div>
+        <div style="font-size:.84rem;color:var(--text-muted);">7 בניינים — כל בניין ניקוד וגוף</div>
+      </div>
+    </div>
+    <p style="font-size:.91rem;margin-bottom:14px;color:var(--text-mid);">לכל בניין — כתבו פועל בשורש <strong>ל.מ.ד</strong>:</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">קַל:</label><input type="text" id="q2a" placeholder="פועל / גוף" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">נִפְעַל:</label><input type="text" id="q2b" placeholder="פועל / גוף" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">פִּיעֵל:</label><input type="text" id="q2c" placeholder="פועל / גוף" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">פֻּעַל:</label><input type="text" id="q2d" placeholder="פועל / גוף" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">הִפְעִיל:</label><input type="text" id="q2e" placeholder="פועל / גוף" /></div>
+      <div><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">הִתְפַּעֵל:</label><input type="text" id="q2f" placeholder="פועל / גוף" /></div>
+      <div style="grid-column:1/-1;"><label style="font-size:.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">הֻפְעַל:</label><input type="text" id="q2g" placeholder="פועל / גוף" /></div>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="card no-print" style="background:linear-gradient(135deg,var(--surface2),var(--surface));border:1.5px solid var(--navy-lt);text-align:center;">
+    <div style="font-size:2rem;margin-bottom:8px;">📤</div>
+    <h3 style="font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:6px;">שליחה למורה</h3>
+    <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:16px;">לחצו לאחר מילוי דף העבודה</p>
+    <button onclick="submitWS()" style="background:var(--navy-lt);color:#fff;border:none;padding:12px 36px;border-radius:10px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;min-height:44px;">שלח/י דף עבודה ✓</button>
+  </div>
+</div>
+
+<!-- ═══ TAB 4: ANSWERS ═══ -->
+<div id="ta" class="tab-pane">
+  <div style="background:linear-gradient(135deg,var(--surface2),var(--surface));border:1.5px solid var(--navy-lt);border-radius:14px;padding:18px 20px;margin-bottom:24px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="font-size:2rem;">🔑</div>
+      <div>
+        <div style="font-weight:800;font-size:1rem;">מדריך פתרונות — לשימוש מורה בלבד</div>
+        <div style="font-size:.82rem;color:var(--text-muted);">כולל טבלאות ודוגמאות מנותחות</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--navy);margin-bottom:12px;">שאלה 1 — תשובות דוגמא</h3>
+  <div class="ai"><strong>מְסַיְּעִים</strong> → שורש: ס.י.ע | בניין: פִּיעֵל</div>
+  <div class="ai"><strong>מִתְגַּבֶּשֶׁת</strong> → שורש: ג.ב.ש | בניין: הִתְפַּעֵל</div>
+  <div class="ai"><strong>הֻשְׂגָה</strong> → שורש: ש.ג.ה | בניין: הֻפְעַל</div>
+  <div class="ai teal"><strong>מַחְלִיפָה</strong> → שורש: ח.ל.פ | בניין: פִּיעֵל</div>
+
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--teal);margin:24px 0 12px;">שאלה 2 — שורש ל.מ.ד בשבעת הבניינים</h3>
+  <div class="overflow-x-auto">
+    <table class="ctable">
+      <thead><tr><th>בניין</th><th style="color:#a8d4f0;">תשובה דוגמא</th><th style="color:#a8d4f0;">ניתוח</th></tr></thead>
+      <tbody>
+        <tr><td><strong>קַל</strong></td><td>לָמַד</td><td>עבר, ג׳ זכר יחיד</td></tr>
+        <tr><td><strong>נִפְעַל</strong></td><td>נִלְמַד</td><td>עבר, סביל</td></tr>
+        <tr><td><strong>פִּיעֵל</strong></td><td>לִמֵּד</td><td>עבר, עצימות</td></tr>
+        <tr><td><strong>פֻּעַל</strong></td><td>לֻמַּד</td><td>עבר, סביל</td></tr>
+        <tr><td><strong>הִפְעִיל</strong></td><td>הִלְמִיד</td><td>עבר, גרימה</td></tr>
+        <tr><td><strong>הִתְפַּעֵל</strong></td><td>הִתְלַמֵּד</td><td>עבר, הדדי/עצמי</td></tr>
+        <tr><td><strong>הֻפְעַל</strong></td><td>הֻלְמַד</td><td>עבר, סביל</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</main>
+
+<!-- SCRIPTS -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js"></script>
+<script src="shared-logic.js"></script>
+
+</body>
+</html>

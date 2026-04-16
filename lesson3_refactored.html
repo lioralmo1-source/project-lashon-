@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>שיעור 3 | הבניינים הכבדים | כיתה י׳</title>
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="lesson-hero-inner">
+    <div id="greeting-bar" style="display:none;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:4px 14px;font-size:.82rem;font-weight:700;color:#fff;width:fit-content;margin-bottom:10px">
+      <span>👋</span><span id="greeting-name">שלום!</span>
+    </div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <div>
+        <div style="display:inline-block;background:rgba(255,255,255,.2);border-radius:100px;padding:3px 12px;font-size:.72rem;font-weight:700;color:#fff;letter-spacing:.06em;margin-bottom:8px">⚡ לשון עברית · כיתה י׳ · יחידה 1 · שיעור 3 מתוך 6</div>
+        <h1 style="font-family:'Heebo',sans-serif;font-size:clamp(1.4rem,3.5vw,2rem);font-weight:800;color:#fff;line-height:1.2;margin-bottom:6px">הבניינים הכבדים</h1>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.75);max-width:500px">פִּיעֵל · פֻּעַל · הִתְפַּעֵל · ניתוח ודקדוק</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;padding-top:4px">
+        <span style="display:inline-flex;padding:3px 10px;border-radius:100px;font-size:.73rem;font-weight:700;background:rgba(255,255,255,.2);color:#fff">⏱ 45 דקות</span>
+        <span style="display:inline-flex;padding:3px 10px;border-radius:100px;font-size:.73rem;font-weight:700;background:rgba(255,255,255,.2);color:#fff">📐 מיצ"ב</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <button class="tab-btn" onclick="showTab('tt',this)">📋 מדריך</button>
+    <button class="tab-btn" onclick="showTab('tx',this)">📰 הטקסט</button>
+    <button class="tab-btn" onclick="showTab('th',this)">📖 תיאוריה</button>
+    <button class="tab-btn" onclick="showTab('tw',this)">✏️ דף עבודה</button>
+    <button class="tab-btn teacher-only" onclick="showTab('ta',this)">🔑 פתרונות</button>
+    <button class="tab-btn" onclick="showTab('tab-assess',this);if(window.calcAssessment)window.calcAssessment()">📊 הערכה</button>
+    <button class="tab-btn" onclick="showTab('tab-dashboard',this)">🖥️ Dashboard</button>
+    <button class="tab-btn no-print" onclick="window.print()" style="margin-right:auto">🖨️</button>
+  </div>
+</nav>
+
+<main style="max-width:860px;margin:0 auto;padding:16px">
+
+<!-- ════════════════════════════════════
+     TAB 1 — TEACHER
+════════════════════════════════════ -->
+<div id="tt" class="tab-pane teacher-only active">
+
+  <!-- At a Glance -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+    <div class="card text-center" style="border-top:3px solid var(--forest);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">🌿</div>
+      <div style="font-size:0.82rem;font-weight:700;color:var(--forest);">מטרה</div>
+      <div style="font-size:0.78rem;color:var(--text-muted);margin-top:3px;">זיהוי ונטיית פִּיעֵל, פֻּעַל, הִתְפַּעֵל; הבחנה סמנטית</div>
+    </div>
+    <div class="card text-center" style="border-top:3px solid var(--ocean);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">🔗</div>
+      <div style="font-size:0.82rem;font-weight:700;color:var(--ocean);">קודם לשיעור</div>
+      <div style="font-size:0.78rem;color:var(--text-muted);margin-top:3px;">שורש + 7 בניינים (ש׳1), קַל (ש׳2)</div>
+    </div>
+    <div class="card text-center" style="border-top:3px solid var(--earth);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">🛠️</div>
+      <div style="font-size:0.82rem;font-weight:700;color:var(--earth);">כלים</div>
+      <div style="font-size:0.78rem;color:var(--text-muted);margin-top:3px;">כרטיסי פועל, לוח, טאבלות</div>
+    </div>
+    <div class="card text-center" style="border-top:3px solid var(--danger);">
+      <div style="font-size:1.7rem;margin-bottom:4px;">📐</div>
+      <div style="font-size:0.82rem;font-weight:700;color:var(--danger);">מיצ"ב</div>
+      <div style="font-size:0.78rem;color:var(--text-muted);margin-top:3px;">D2.4, D2.5, D2.6, R2.3, W1.4</div>
+    </div>
+  </div>
+
+  <h2 class="teal-h">📍 מהלך השיעור</h2>
+
+  <!-- Phase 1 -->
+  <div class="phase-row">
+    <div class="phase-circle" style="background:var(--danger-lt);color:#fff;">5׳</div>
+    <div style="flex:1;">
+      <span class="badge" style="background:#fdecea;color:var(--danger);border:1px solid var(--danger);margin-bottom:8px;">🔥 פתיחה — חידת הדגש</span>
+      <h3 style="font-weight:700;font-size:1rem;margin-bottom:7px;">פעילות "נקד ותגיד" — הדגש כמפתח</h3>
+      <p style="font-size:0.9rem;color:var(--text-mid);">כתבו על הלוח 3 מילים ללא ניקוד: <strong>כתב / מדבר / שבר</strong>. שאלו: "כמה אפשר לנקד כל מילה?" הציגו בזוגות — כל זוג מנסה למצוא לפחות שתי קריאות.</p>
+      <div style="background:var(--surface2);border-right:3px solid var(--forest);padding:10px 14px;border-radius:0 8px 8px 0;margin-top:10px;font-size:0.86rem;">
+        <strong style="color:var(--forest);">💡 מה לצפות:</strong><br>
+        <em>כִּתֵּב</em> (פִּיעֵל) ≠ <em>כָּתַב</em> (קַל) | <em>מְדַבֵּר</em> (פִּיעֵל) ≠ <em>מְדֻבָּר</em> (פֻּעַל) ≠ <em>מִתְדַּבֵּר</em> (הִתְפַּעֵל)<br>
+        <strong>הרעיון המרכזי:</strong> הדגש החזק בעי"ן הפועל = "חתימת הבניינים הכבדים"
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="phase-row">
+    <div class="phase-circle" style="background:var(--forest);color:#fff;">10׳</div>
+    <div style="flex:1;">
+      <span class="badge" style="background:var(--surface2);color:var(--forest);border:1px solid var(--forest);margin-bottom:8px;">📚 רכישה — הוראה ישירה</span>
+      <h3 style="font-weight:700;font-size:1rem;margin-bottom:7px;">שלושת הבניינים: מאפיינים, בינוני, משמעות</h3>
+      <p style="font-size:0.9rem;color:var(--text-mid);">הציגו את טבלת ההשוואה המשולשת (לשונית "תיאוריה"). הדגישו את <strong>שלושת ציוני הדרך</strong>:</p>
+      <ul style="padding-right:18px;font-size:0.88rem;color:var(--text-mid);margin-top:6px;line-height:2.1;">
+        <li><strong>פִּיעֵל</strong> — דגש בעי"ן הפועל + פתח/צֵרֵה | פעיל, עצים | מְדַבֵּר / מְכַבֵּד</li>
+        <li><strong>פֻּעַל</strong> — קיבוץ תחת פ"פ + דגש בעי"ן | סביל של פיעל | מְדֻבָּר / מְכֻבָּד</li>
+        <li><strong>הִתְפַּעֵל</strong> — תחילית הִתְ + דגש בעי"ן | רפלקסיבי/הדדי | מִתְדַּבֵּר / מִתְכַּבֵּד</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="phase-row">
+    <div class="phase-circle" style="background:var(--ocean);color:#fff;">10׳</div>
+    <div style="flex:1;">
+      <span class="badge" style="background:#e8f0fc;color:var(--ocean);border:1px solid var(--ocean);margin-bottom:8px;">🎬 הדגמה מודרכת</span>
+      <h3 style="font-weight:700;font-size:1rem;margin-bottom:7px;">קריאת הטקסט "כדור הארץ מתחמם" + ניתוח</h3>
+      <p style="font-size:0.9rem;color:var(--text-mid);">קראו יחד את הטקסט (לשונית "הטקסט"). הדגימו ניתוח של 4 פעלים — אחד מכל בניין + הסבר מדוע.</p>
+      <div style="background:var(--surface2);border-right:3px solid var(--ocean);padding:10px 14px;border-radius:0 8px 8px 0;margin-top:10px;font-size:0.86rem;">
+        <strong style="color:var(--ocean);">הדגמה לניתוח מודרך:</strong><br>
+        <span class="vb-kal">מְחַמֵּם</span> ← שורש ח-מ-מ | פִּיעֵל | הווה זכר יחיד | דגש בממ"ם השנייה (עי"ן הפועל כפולה) → פעולה עצימה/גרימה
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 4 -->
+  <div class="phase-row">
+    <div class="phase-circle" style="background:#7c3aed;color:#fff;">15׳</div>
+    <div style="flex:1;">
+      <span class="badge" style="background:#ede9fe;color:#7c3aed;border:1px solid #7c3aed;margin-bottom:8px;">✏️ תרגול עצמאי</span>
+      <h3 style="font-weight:700;font-size:1rem;margin-bottom:7px;">דף עבודה — שאלות 1–7</h3>
+      <p style="font-size:0.9rem;color:var(--text-mid);"><strong>שאלה 3</strong> — ניתוח טריו (3 בניינים, שורש אחד) — לב השיעור, תנו לה זמן.<br><strong>שאלה 5</strong> — נתון הרא"מ האקלימי + כתיבה — תנו 3–4 דקות נוספות.</p>
+    </div>
+  </div>
+
+  <!-- Phase 5 -->
+  <div class="phase-row" style="margin-bottom:0;">
+    <div class="phase-circle" style="background:#94a3b8;color:#fff;">5׳</div>
+    <div style="flex:1;">
+      <span class="badge" style="background:#f1f5f9;color:#64748b;border:1px solid #cbd5e1;margin-bottom:8px;">🔚 סיכום — Exit Ticket</span>
+      <h3 style="font-weight:700;font-size:1rem;margin-bottom:7px;">"שלוש מילים — שלושה בניינים"</h3>
+      <p style="font-size:0.9rem;color:var(--text-mid);">כל תלמיד כותב שלוש צורות של אותו שורש — אחת לכל בניין כבד (פִּיעֵל, פֻּעַל, הִתְפַּעֵל) — ומסביר את ההבדל בין השלושה בשורה אחת.</p>
+    </div>
+  </div>
+
+  <!-- Differentiation -->
+  <h2 class="teal-h" style="margin-top:32px;">🎯 התאמות</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+    <div class="card" style="border-right:4px solid var(--danger);">
+      <div style="font-weight:700;color:var(--danger);margin-bottom:8px;font-size:0.9rem;">⬇️ תמיכה</div>
+      <ul style="font-size:0.86rem;color:var(--text-mid);padding-right:18px;line-height:2.1;">
+        <li>ספקו טבלת "מפתח הדגש" — אחד עם צילום קרוב של הדגש החזק</li>
+        <li>בשאלות 1–2 — עבדו על פִּיעֵל בלבד תחילה</li>
+        <li>שאלה 3 — הגבילו לשני בניינים (פִּיעֵל + פֻּעַל)</li>
+      </ul>
+    </div>
+    <div class="card" style="border-right:4px solid var(--forest);">
+      <div style="font-weight:700;color:var(--forest);margin-bottom:8px;font-size:0.9rem;">⬆️ הרחבה</div>
+      <ul style="font-size:0.86rem;color:var(--text-mid);padding-right:18px;line-height:2.1;">
+        <li>מצאו בטקסט שורשים שיש להם כל שלושת הבניינים הכבדים</li>
+        <li>כתבו פסקה על שינוי אקלימי אחד שחוויתם — עם לפחות 4 פעלים מ-3 בניינים כבדים</li>
+        <li>חקרו: האם כל שורש יכול להופיע בפֻּעַל? מה קורה כשאין שימוש בסביל?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Common Mistakes -->
+  <h2 class="teal-h">⚠️ טעויות נפוצות — דגשים פדגוגיים</h2>
+
+  <div class="mistake-card">
+    <div style="font-weight:700;color:var(--danger);margin-bottom:6px;font-size:0.92rem;">🔴 טעות 1 — "רואים דגש? זה פִּיעֵל" — לא תמיד!</div>
+    <p style="font-size:0.87rem;color:var(--text-mid);">תלמידים מזהים דגש ומסיקים פִּיעֵל מיד. אך גם פֻּעַל והִתְפַּעֵל יש להם דגש בעי"ן הפועל. <strong>הכלל המדויק:</strong> (1) קיבוץ תחת פ"פ = פֻּעַל; (2) תחילית הִתְ/מִתְ = הִתְפַּעֵל; (3) פתח/צֵרֵה + דגש בלי תחילית = פִּיעֵל.</p>
+  </div>
+
+  <div class="mistake-card">
+    <div style="font-weight:700;color:var(--danger);margin-bottom:6px;font-size:0.92rem;">🔴 טעות 2 — בלבול בין בינוני פִּיעֵל לפֻּעַל</div>
+    <p style="font-size:0.87rem;color:var(--text-mid);"><em>מְדַבֵּר</em> לעומת <em>מְדֻבָּר</em> — שניהם מתחילים במ׳. ההבדל: (א) <strong>מְדַ</strong>בֵּר — פתח; (ב) <strong>מְדֻ</strong>בָּר — קיבוץ. <strong>תרגיל ידיים:</strong> צבעו בצהוב את התנועה תחת ד׳ — אם זה פתח = פִּיעֵל, אם קיבוץ = פֻּעַל.</p>
+  </div>
+
+  <div class="mistake-card">
+    <div style="font-weight:700;color:var(--danger);margin-bottom:6px;font-size:0.92rem;">🔴 טעות 3 — חילופי אותיות בהִתְפַּעֵל (הִתְ + ש/צ/ס)</div>
+    <p style="font-size:0.87rem;color:var(--text-mid);">השורש <strong>ש-מ-ר</strong>: לא <em>הִתְשַׁמֵּר</em> אלא <em>הִשְׁתַּמֵּר</em> (ת↔ש). השורש <strong>צ-ח-ק</strong>: לא <em>הִתְצַחֵק</em> אלא <em>הִצְטַחֵק</em> (ת→ט, ט מתלכד). תלמידים כותבים את צורת הבסיס ולא את הצורה האמיתית.</p>
+  </div>
+
+  <div class="mistake-card">
+    <div style="font-weight:700;color:var(--danger);margin-bottom:6px;font-size:0.92rem;">🔴 טעות 4 — "פֻּעַל" = בניין נדיר — ואז מדלגים עליו</div>
+    <p style="font-size:0.87rem;color:var(--text-mid);">תלמידים חושבים שפֻּעַל נדיר ולא חשוב. אבל בטקסטים עיתונאיים ואקדמיים (כמו בנושא האקלים) הוא שכיח מאוד: <em>פֻּרְסַם, תֻּכְנַן, נֻסַּח</em>. <strong>הדגישו:</strong> כל פועל שמשמעותו "X נעשה/קיבל/הפך" — יש לחפש פֻּעַל.</p>
+  </div>
+
+  <div class="success-card">
+    <div style="font-weight:700;color:var(--forest);margin-bottom:6px;font-size:0.92rem;">✅ טיפ הצלחה — "משפחת שלושה"</div>
+    <p style="font-size:0.87rem;color:var(--text-mid);">לימדו כל שורש כ"משפחה" — תמיד שלושה: <em>פִּיעֵל (פעיל) + פֻּעַל (סביל) + הִתְפַּעֵל (רפלקסיבי)</em>. דוגמה לפתח בדיון: "אם אני <em>מְאַרְגֵּן</em> את הכיתה [פִּיעֵל], הכיתה <em>מְאֻרְגֶּנֶת</em> [פֻּעַל], וכולם <em>מִתְאַרְגְּנִים</em> [הִתְפַּעֵל]."</p>
+  </div>
+
+  <!-- Standards -->
+  <h2 class="teal-h" style="margin-top:24px;">📐 יישור לתקנים</h2>
+  <div class="overflow-x-auto my-4" style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+    <table style="width:100%;border-collapse:collapse;font-size:0.87rem;">
+      <thead><tr style="background:var(--surface2);">
+        <th style="padding:10px 14px;text-align:right;color:var(--forest);border-bottom:1px solid var(--border);">תחום</th>
+        <th style="padding:10px 14px;text-align:right;color:var(--forest);border-bottom:1px solid var(--border);">מטרה לפי מפמ"ר</th>
+        <th style="padding:10px 14px;text-align:right;color:var(--forest);border-bottom:1px solid var(--border);">מיצ"ב</th>
+      </tr></thead>
+      <tbody>
+        <tr class="rr"><td>דקדוק — פִּיעֵל</td><td>זיהוי, נטייה, תפקיד סמנטי (עצימות/גרימה)</td><td>D2.4</td></tr>
+        <tr class="rr"><td>דקדוק — פֻּעַל</td><td>זיהוי, נטייה, תפקיד סמנטי (סביל)</td><td>D2.5</td></tr>
+        <tr class="rr"><td>דקדוק — הִתְפַּעֵל</td><td>זיהוי, נטייה, תפקיד (רפלקסיבי/הדדי)</td><td>D2.6</td></tr>
+        <tr class="rr"><td>הבנת הנקרא</td><td>הסקת מסקנה מנתון + ניסוח בשפה תקינה</td><td>R2.3</td></tr>
+        <tr class="rr"><td>הבעה בכתב</td><td>שימוש מדויק בשלושת הבניינים בכתיבה</td><td>W1.4</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /teacher -->
+
+
+<!-- ════════════════════════════════════
+     TAB 2 — TEXT
+════════════════════════════════════ -->
+<div id="tx" class="tab-pane">
+<div class="legend-unified no-print" style="margin:12px 0 18px">
+  <span class="lu-i"><span class="lu-d" style="background:#c84b31"></span><span class="vb-kal">קַל&nbsp;/&nbsp;פִּיעֵל</span></span>
+  <span class="lu-i"><span class="lu-d" style="background:#2d3561"></span><span class="vb-nif">נִפְעַל&nbsp;/&nbsp;הֻפְעַל</span></span>
+  <span class="lu-i"><span class="lu-d" style="background:#4a7c59"></span><span class="vb-hif">הִפְעִיל&nbsp;/&nbsp;הִתְפַּעֵל&nbsp;/&nbsp;פֻּעַל</span></span>
+</div>
+
+  <!-- Article Header -->
+  <div style="background:linear-gradient(135deg,#e8f5ef,#e0eefc);border:1px solid var(--border);border-radius:16px;padding:24px 28px;margin-bottom:28px;">
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+      <span class="badge" style="background:var(--surface2);color:var(--forest);border:1px solid var(--forest);">כתבת מדע</span>
+      <span class="badge" style="background:#e8f0fc;color:var(--ocean);border:1px solid var(--ocean);">רמה: ג׳ — שאלון 70%</span>
+      <span class="badge" style="background:#fdecea;color:var(--danger);border:1px solid var(--danger);">2026</span>
+    </div>
+    <h1 style="font-family:'Secular One',sans-serif;font-size:clamp(1.3rem,3vw,2rem);color:var(--text);line-height:1.3;margin-bottom:10px;">
+      כדור הארץ מתחמם: מי יתקן את מה שנשבר?
+    </h1>
+    <p style="color:var(--text-muted);font-size:0.87rem;">מאת: <strong style="color:var(--text);">ד"ר תמר אלוני-כץ</strong> | <em>מדע וסביבה</em>, ינואר 2026</p>
+  </div>
+
+  <!-- Article Body -->
+  <div class="article-body max-w-3xl" style="margin:0 auto 32px;">
+
+    <p>כשהמדענים <span class="vb-kal">פרסמו</span> בדצמבר 2025 את הדוח השנתי של ועידת האקלים, הנתון שהם <span class="vb-kal">הציגו</span> לא <span class="vb-kal">הפתיע</span> מומחים — אבל <span class="vb-kal">התקבל</span> בהלם על ידי הציבור: טמפרטורת כדור הארץ <span class="vb-kal">עלתה</span> בממוצע 1.5 מעלות צלסיוס מאז תחילת המהפכה התעשייתית, וזה הסף שהמדענים <span class="vb-kal">ייעדו</span> כ"קו האדום".</p>
+
+    <p>הנתון <span class="vb-kal">הדהים</span> את הגולשים ברשת. "1.5 מעלות — זה נשמע קטן", <span class="vb-kal">כתב</span> אחד המגיבים, "אבל למה זה <span class="vb-kal">גורם</span> לאסונות ענק?" ד"ר נדב פרל, מומחה לאקלים מאוניברסיטת בן-גוריון, <span class="vb-kal">הסביר</span> בפשטות: "כשאתה <span class="vb-kal">מחמם</span> את האוקיינוס בחצי מעלה, הוא <span class="vb-kal">מתנהג</span> כמו סיר לחץ — הכל <span class="vb-kal">מתעצם</span>."</p>
+
+    <p>המשבר <span class="vb-kal">מחייב</span> פתרונות טכנולוגיים שנויים במחלוקת. חברת <em>SolarShade</em> הישראלית <span class="vb-kal">פיתחה</span> מערכת <span class="vb-kal">מונעת</span> קרינה שמוצעת <span class="vb-nif">להפרס</span> מעל שטחי חקלאות. "אנחנו <span class="vb-kal">מצלמים</span> את הפגיעה ו<span class="vb-kal">מתכננים</span> את הפתרון", <span class="vb-kal">אמרה</span> מנכ"לית החברה. הרעיון <span class="vb-nif">נדון</span> בפני ועדת הכנסת לאיכות הסביבה, ו<span class="vb-kal">פוצל</span> לדעות: חלק <span class="vb-kal">מברכים</span>, חלק <span class="vb-kal">מודאגים</span>.</p>
+
+    <p>בצד הפחות טכנולוגי, הויכוח <span class="vb-kal">מתנהל</span> גם על צמצום פליטות. ממשלות רבות <span class="vb-kal">מחייבות</span> כיום מעבר לרכב חשמלי, והצרכנים <span class="vb-nif">מחויבים</span> לשנות הרגלים. "הציבור <span class="vb-kal">מתקשה</span> להתמודד עם שינוי כה מהיר", <span class="vb-kal">ציינה</span> ד"ר פרל. "אנחנו <span class="vb-kal">מצפים</span> שהפרט <span class="vb-kal">יישא</span> בנטל שממשלות <span class="vb-kal">צברו</span> במשך עשרות שנים."</p>
+
+    <p>ישראל <span class="vb-kal">הצהירה</span> ב-2023 על יעד "אפס פליטות" עד 2050. אך המציאות <span class="vb-kal">מסתבכת</span>: תשתיות אנרגיה <span class="vb-nif">מוחלפות</span> לאט, ותחנות כוח פחם עדיין <span class="vb-kal">פועלות</span>. "כל יום שאנחנו <span class="vb-kal">מתעכבים</span> הוא יום שהאדמה <span class="vb-kal">משלמת</span> בעד אדישותנו", <span class="vb-kal">אמר</span> ח"כ ירון כהן בנאומו בכנסת. "הגיע הזמן שנ<span class="vb-kal">פעל</span>, לא רק נ<span class="vb-kal">דבר</span>."</p>
+
+  </div>
+
+  <!-- Legend -->
+  <div class="card max-w-3xl" style="margin:0 auto 24px;">
+    <div style="font-weight:700;margin-bottom:10px;font-size:0.9rem;color:var(--text);">מקרא — פעלים בטקסט לפי בניין</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;font-size:0.86rem;">
+      <span>■ פִּיעֵל — עצים/גרימה</span>
+      <span>■ הִפְעִיל / קַל — להשוואה</span>
+      <span>■ הִתְפַּעֵל — רפלקסיבי</span>
+      <span>■ פֻּעַל / הֻפְעַל — סביל</span>
+    </div>
+    <div class="section-note">* ההדגשות לשימוש בהדגמה המודרכת — תלמידים מזהים ומסווגים</div>
+  </div>
+
+  <!-- ══ CLIMATE DATA INFOGRAPHIC ══ -->
+  <div class="climate-chart max-w-3xl" style="margin:0 auto 0;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+      <span style="background:var(--forest);color:#fff;font-size:0.72rem;font-weight:800;padding:4px 12px;border-radius:100px;letter-spacing:0.06em;">נספח — נתון ראמ"ה אקלים</span>
+      <span style="font-size:0.8rem;color:var(--text-muted);">מקור: IPCC / ועידת האקלים, 2025</span>
+    </div>
+    <h3 style="font-family:'Secular One',sans-serif;font-weight:700;font-size:1.02rem;margin-bottom:4px;color:var(--text);">עליית טמפרטורה גלובלית מאז 1850 — מגמה לפי עשורים</h3>
+    <p style="font-size:0.81rem;color:var(--text-muted);margin-bottom:18px;">(מדד: +מעלות צלסיוס יחסית לממוצע 1850–1900)</p>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="temp-label">1850–1900</div>
+        <div class="temp-bar-track">
+          <div class="temp-bar-fill" style="width:4%;background:#6dd5fa;color:#1a3a5c;">0.0°</div>
+        </div>
+        <div class="temp-pct">בסיס</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="temp-label">1901–1950</div>
+        <div class="temp-bar-track">
+          <div class="temp-bar-fill" style="width:15%;background:#72e8b0;color:#0d3a20;">+0.2°</div>
+        </div>
+        <div class="temp-pct">+0.2°</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="temp-label">1951–1980</div>
+        <div class="temp-bar-track">
+          <div class="temp-bar-fill" style="width:28%;background:#f9d84a;color:#4a3000;">+0.4°</div>
+        </div>
+        <div class="temp-pct">+0.4°</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="temp-label">1981–2000</div>
+        <div class="temp-bar-track">
+          <div class="temp-bar-fill" style="width:48%;background:#f39c12;color:#fff;">+0.7°</div>
+        </div>
+        <div class="temp-pct">+0.7°</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="temp-label">2001–2020</div>
+        <div class="temp-bar-track">
+          <div class="temp-bar-fill" style="width:70%;background:#e74c3c;color:#fff;">+1.1°</div>
+        </div>
+        <div class="temp-pct">+1.1°</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="temp-label" style="font-weight:700;color:var(--danger);">2025 ↑</div>
+        <div class="temp-bar-track" style="border:1.5px solid var(--danger);">
+          <div class="temp-bar-fill" style="width:93%;background:linear-gradient(90deg,#c0392b,#8b0000);color:#fff;font-weight:800;">+1.5° — הקו האדום</div>
+        </div>
+        <div class="temp-pct" style="color:var(--danger);font-weight:700;">+1.5°</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;padding:12px 16px;background:rgba(192,57,43,0.08);border-right:3px solid var(--danger);border-radius:0 8px 8px 0;font-size:0.84rem;">
+      <strong style="color:var(--danger);">📌 נקודת ציון מרכזית:</strong> ה-IPCC <span class="vb-kal">קבע</span> ש-1.5° הוא <strong>"הסף הקריטי"</strong> — מעליו <span class="vb-kal">מתרחשות</span> השפעות בלתי-הפיכות על המערכת האקולוגית.<br>
+      <strong style="color:var(--ocean);">📌 קצב ההתחממות:</strong> בין 1850 ל-2000 עלתה הטמפרטורה 0.7° ב-150 שנה. מ-2000 ל-2025 <span class="vb-nif">הואצה</span> ב-0.8° נוספות ב-25 שנה בלבד.
+    </div>
+  </div>
+
+</div><!-- /text -->
+
+
+<!-- ════════════════════════════════════
+     TAB 3 — THEORY
+════════════════════════════════════ -->
+<div id="th" class="tab-pane">
+
+  <h2 class="teal-h" style="font-size:1.35rem;">📚 הבניינים הכבדים — תיאוריה מלאה</h2>
+
+  <!-- Rich intro block -->
+  <div class="theory-block" style="margin-bottom:1.5rem;">
+    <div class="block-title">ℹ️ מה הופך בניין ל"כבד"?</div>
+    <div class="article-body">
+      <p>שלושת הבניינים פִּיעֵל, פֻּעַל והִתְפַּעֵל נקראים "כבדים" משום שבכולם יש <strong>דגש חזק בעי"ן הפועל</strong> — האות האמצעית. הדגש הזה הוא "סימן ההיכר" המשותף לכל השלושה, וניתן לשמוע אותו בהגייה. כאשר השורש ד.ב.ר מוטה בפִּיעֵל בזמן עבר, נקבל <strong>דִּבֵּר</strong> (שורש: ד.ב.ר, בניין: פִּיעֵל, עבר ג׳ז׳י׳) — הב׳ יצאה עם דגש חזק. כאשר אותו שורש מוטה בהִתְפַּעֵל, נקבל <strong>הִתְדַּבֵּר</strong> (שורש: ד.ב.ר, בניין: הִתְפַּעֵל, עבר ג׳ז׳י׳) — שוב דגש בב׳. ובפֻּעַל: <strong>דֻּבַּר</strong> (שורש: ד.ב.ר, בניין: פֻּעַל, עבר ג׳ז׳י׳) — הדגש קיים אך לפעמים לא מושמע בהגייה מודרנית.</p>
+      <p>ההבחנה בין שלושת הבניינים נעשית לפי שני פרמטרים: <strong>תנועת פ"פ</strong> (האות הראשונה) ו<strong>קיום תחילית</strong>. בפִּיעֵל — פתח/צֵרֵה תחת פ"פ + דגש בעי"ן. בפֻּעַל — קיבוץ תחת פ"פ + דגש בעי"ן. בהִתְפַּעֵל — תחילית הִתְ/מִתְ + דגש בעי"ן. כלל הזהב: ראיתם "הִתְ" בתחילה — זה הִתְפַּעֵל.</p>
+    </div>
+  </div>
+
+  <div class="theory-block tip" style="margin-bottom:1.5rem;">
+    <div class="block-title">💡 הבחנה מהירה בין שלושת הבניינים — שורש ל.מ.ד</div>
+    <div class="article-body">
+      <p>בניין <strong>פִּיעֵל</strong> מבטא פעולה עצימה, גרימה, או פעולה מכוונת לאחרים: <strong>לִמֵּד</strong> (שורש: ל.מ.ד, בניין: פִּיעֵל — המורה הנחיל ידע לתלמידים). בניין <strong>פֻּעַל</strong> הוא הסביל של פִּיעֵל — הנושא מקבל את הפעולה מגורם לא מצוין: <strong>לֻמַּד</strong> (שורש: ל.מ.ד, בניין: פֻּעַל — הידע הועבר, ולא ברור מי העביר אותו). בניין <strong>הִתְפַּעֵל</strong> מבטא פעולה רפלקסיבית (על עצמך) או הדדית: <strong>הִתְלַמֵּד</strong> (שורש: ל.מ.ד, בניין: הִתְפַּעֵל — למד בהדרגה לעצמו, התמחה). ובדוגמה נוספת: <strong>הִתְלַבֵּשׁ</strong> (שורש: ל.ב.ש, בניין: הִתְפַּעֵל — לבש בעצמו, פעולה חוזרת על עצמו).</p>
+    </div>
+  </div>
+
+  <!-- Comparison Table -->
+  <h3 style="font-weight:700;font-size:1.05rem;margin:20px 0 12px;">טבלת השוואה — שורש ד-ב-ר</h3>
+  <div class="overflow-x-auto my-4" style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:24px;">
+    <table class="ctable">
+      <thead>
+        <tr>
+          <th>בניין</th><th>עבר (הוא)</th><th>הווה (זכר יחיד)</th><th>עתיד (הוא)</th><th>תפקיד סמנטי</th><th>סימן מזהה</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:700;color:var(--forest);">פִּיעֵל</td>
+          <td>דִּבֵּר</td>
+          <td>מְדַבֵּר</td>
+          <td>יְדַבֵּר</td>
+          <td>פעיל, עצים/גרימה</td>
+          <td>פתח/צֵרֵה + דגש בעי"ן</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:var(--ocean);">פֻּעַל</td>
+          <td>דֻּבַּר</td>
+          <td>מְדֻבָּר</td>
+          <td>יְדֻבַּר</td>
+          <td>סביל</td>
+          <td>קיבוץ + דגש בעי"ן</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:#7c3aed;">הִתְפַּעֵל</td>
+          <td>הִתְדַּבֵּר</td>
+          <td>מִתְדַּבֵּר</td>
+          <td>יִתְדַּבֵּר</td>
+          <td>רפלקסיבי/הדדי</td>
+          <td>הִתְ + דגש בעי"ן</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /theory -->
+
+
+<!-- ════════════════════════════════════
+     TAB 4 — WORKSHEET
+════════════════════════════════════ -->
+<div id="tw" class="tab-pane">
+
+  <!-- Student info -->
+  <div class="card" style="background:linear-gradient(135deg,var(--surface2),var(--surface));margin-bottom:20px;">
+    <h2 style="font-family:'Secular One',sans-serif;font-size:1.2rem;color:var(--text);margin-bottom:16px;">✏️ דף עבודה — שיעור 3: הבניינים הכבדים</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div>
+        <label style="font-size:0.8rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">שם מלא</label>
+        <input type="text" id="sname" placeholder="הקלד/י שם...">
+      </div>
+      <div>
+        <label style="font-size:0.8rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">כיתה</label>
+        <input type="text" id="sclass" placeholder="לדוגמה: י׳3">
+      </div>
+      <div>
+        <label style="font-size:0.8rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">תאריך</label>
+        <input type="text" id="sdate" placeholder="יום/חודש/שנה">
+      </div>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="card" style="border-right:4px solid var(--forest);">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div style="background:var(--forest);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;flex-shrink:0;">1</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;color:var(--text);">זיהוי הדגש החזק — "ממלכת הבניינים הכבדים"</div>
+        <div style="font-size:0.84rem;color:var(--text-muted);">(14 נקודות — 2 נקודות לכל פועל)</div>
+      </div>
+    </div>
+    <p style="font-size:0.91rem;margin-bottom:14px;color:var(--text-mid);">
+      להלן 7 פעלים מהטקסט. עבור כל אחד: (א) סמנו את עי"ן הפועל (האות עם הדגש החזק), (ב) קבעו לאיזה בניין שייך הפועל, (ג) ציינו שורש.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div>
+        <label style="font-size:0.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">א. <span class="vb-kal">פֵּרְסְמוּ</span> (פרסמו)</label>
+        <input type="text" id="q1a" placeholder="בניין: ___ | שורש: _-_-_ | עי״ן: ___">
+      </div>
+      <div>
+        <label style="font-size:0.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ב. <span class="vb-kal">מְחַמֵּם</span> (מחמם)</label>
+        <input type="text" id="q1b" placeholder="בניין: ___ | שורש: _-_-_ | עי״ן: ___">
+      </div>
+      <div>
+        <label style="font-size:0.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ג. <span class="vb-nif">מְדֻבָּר</span> (מדובר)</label>
+        <input type="text" id="q1c" placeholder="בניין: ___ | שורש: _-_-_ | עי״ן: ___">
+      </div>
+      <div>
+        <label style="font-size:0.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ד. <span class="vb-hif">מִתְעַכֵּב</span> (מתעכב)</label>
+        <input type="text" id="q1d" placeholder="בניין: ___ | שורש: _-_-_ | עי״ן: ___">
+      </div>
+      <div>
+        <label style="font-size:0.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ה. <span class="vb-kal">פִּתְּחָה</span> (פיתח / פיתחה)</label>
+        <input type="text" id="q1e" placeholder="בניין: ___ | שורש: _-_-_ | עי״ן: ___">
+      </div>
+      <div>
+        <label style="font-size:0.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ו. <span class="vb-nif">מְחֻיָּב</span> (מחויב)</label>
+        <input type="text" id="q1f" placeholder="בניין: ___ | שורש: _-_-_ | עי״ן: ___">
+      </div>
+      <div>
+        <label style="font-size:0.83rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px;">ז. <span class="vb-hif">מִתְקַשָּׁה</span> (מתקשה)</label>
+        <input type="text" id="q1g" placeholder="בניין: ___ | שורש: _-_-_ | עי״ן: ___">
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="card" style="border-right:4px solid var(--ocean);">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div style="background:var(--ocean);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;flex-shrink:0;">2</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;color:var(--text);">השלמת בינוני — ארבע הצורות</div>
+        <div style="font-size:0.84rem;color:var(--text-muted);">(16 נקודות — 2 לכל תא)</div>
+      </div>
+    </div>
+    <p style="font-size:0.91rem;margin-bottom:14px;color:var(--text-mid);">השלימו את צורות הבינוני (הווה) לכל בניין עבור השורש <strong>ח-מ-מ</strong>:</p>
+    <div class="overflow-x-auto my-4" style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+        <thead>
+          <tr style="background:var(--surface2);">
+            <th style="padding:9px 12px;text-align:right;color:var(--forest);border-bottom:1px solid var(--border);">בניין</th>
+            <th style="padding:9px 12px;text-align:right;color:var(--forest);border-bottom:1px solid var(--border);">זכר יחיד</th>
+            <th style="padding:9px 12px;text-align:right;color:var(--forest);border-bottom:1px solid var(--border);">נקבה יחיד</th>
+            <th style="padding:9px 12px;text-align:right;color:var(--forest);border-bottom:1px solid var(--border);">רבים זכר</th>
+            <th style="padding:9px 12px;text-align:right;color:var(--forest);border-bottom:1px solid var(--border);">רבות נקבה</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:8px 12px;font-weight:700;color:var(--forest);">פִּיעֵל</td>
+            <td style="padding:5px 8px;"><input type="text" id="b1" placeholder="מְ___" style="min-height:38px;"></td>
+            <td style="padding:5px 8px;"><input type="text" id="b2" placeholder="מְ___" style="min-height:38px;"></td>
+            <td style="padding:5px 8px;"><input type="text" id="b3" placeholder="מְ___" style="min-height:38px;"></td>
+            <td style="padding:5px 8px;"><input type="text" id="b4" placeholder="מְ___" style="min-height:38px;"></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:8px 12px;font-weight:700;color:var(--ocean);">פֻּעַל</td>
+            <td style="padding:5px 8px;"><input type="text" id="b5" placeholder="מְ___" style="min-height:38px;"></td>
+            <td style="padding:5px 8px;"><input type="text" id="b6" placeholder="מְ___" style="min-height:38px;"></td>
+            <td style="padding:5px 8px;"><input type="text" id="b7" placeholder="מְ___" style="min-height:38px;"></td>
+            <td style="padding:5px 8px;"><input type="text" id="b8" placeholder="מְ___" style="min-height:38px;"></td>
+          </tr>
+          <tr>
+            <td style="padding:8px 12px;font-weight:700;color:#7c3aed;">הִתְפַּעֵל</td>
+            <td style="padding:5px 8px;"><input type="text" id="b9" placeholder="מִתְ___" style="min-height:38px;"></td>
+            <td style="padding:5px 8px;"><input type="text" id="b10" placeholder="מִתְ___" style="min-height:38px;"></td>
+            <td style="padding:5px 8px;"><input type="text" id="b11" placeholder="מִתְ___" style="min-height:38px;"></td>
+            <td style="padding:5px 8px;"><input type="text" id="b12" placeholder="מִתְ___" style="min-height:38px;"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section-note">💡 שורש כפול ח-מ-מ: עי"ן הפועל = מ"מ השנייה (מ-ח-מ-מ). הדגש = הכפלת האות.</div>
+  </div>
+
+  <!-- Q3 — SEMANTIC TRIO (Core) -->
+  <div class="card" style="border-right:4px solid #7c3aed;">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div style="background:#7c3aed;color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;flex-shrink:0;">3</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;color:var(--text);">טריו הבניינים — אותו שורש, שלוש משמעויות</div>
+        <div style="font-size:0.84rem;color:var(--text-muted);">(18 נקודות | לב השיעור)</div>
+      </div>
+    </div>
+    <p style="font-size:0.91rem;margin-bottom:14px;color:var(--text-mid);">
+      השורש <strong>א-ר-ג-ן</strong> (ארגון). לכל אחד מ-3 הבניינים — (א) כתבו צורת עבר (הוא), (ב) צורת הווה (זכר יחיד), (ג) משפט שלם הממחיש את ההבדל הסמנטי בהקשר אקלימי.
+    </p>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="background:var(--surface2);border-radius:10px;padding:14px 16px;">
+        <div style="font-weight:700;color:var(--forest);margin-bottom:10px;font-size:0.95rem;">🌿 פִּיעֵל (פעיל — גרמת סדר)</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div><label style="font-size:0.8rem;color:var(--text-muted);display:block;margin-bottom:3px;">עבר (הוא):</label><input type="text" id="q3piel_past" placeholder="___"></div>
+          <div><label style="font-size:0.8rem;color:var(--text-muted);display:block;margin-bottom:3px;">הווה (זכר יחיד):</label><input type="text" id="q3piel_pres" placeholder="___"></div>
+          <div><label style="font-size:0.8rem;color:var(--text-muted);display:block;margin-bottom:3px;">משפט בהקשר אקלימי:</label><input type="text" id="q3piel_sent" placeholder="הוועדה _____ את..."></div>
+        </div>
+      </div>
+      <div style="background:#e8f0fc;border-radius:10px;padding:14px 16px;">
+        <div style="font-weight:700;color:var(--ocean);margin-bottom:10px;font-size:0.95rem;">🌊 פֻּעַל (סביל — קיבל ארגון)</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div><label style="font-size:0.8rem;color:var(--text-muted);display:block;margin-bottom:3px;">עבר (הוא):</label><input type="text" id="q3pual_past" placeholder="___"></div>
+          <div><label style="font-size:0.8rem;color:var(--text-muted);display:block;margin-bottom:3px;">הווה (זכר יחיד):</label><input type="text" id="q3pual_pres" placeholder="___"></div>
+          <div><label style="font-size:0.8rem;color:var(--text-muted);display:block;margin-bottom:3px;">משפט בהקשר אקלימי:</label><input type="text" id="q3pual_sent" placeholder="הכנס האקלימי _____ על ידי..."></div>
+        </div>
+      </div>
+      <div style="background:#ede9fe;border-radius:10px;padding:14px 16px;">
+        <div style="font-weight:700;color:#7c3aed;margin-bottom:10px;font-size:0.95rem;">🔄 הִתְפַּעֵל (רפלקסיבי — ארגן את עצמו)</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div><label style="font-size:0.8rem;color:var(--text-muted);display:block;margin-bottom:3px;">עבר (הוא):</label><input type="text" id="q3hitp_past" placeholder="___"></div>
+          <div><label style="font-size:0.8rem;color:var(--text-muted);display:block;margin-bottom:3px;">הווה (זכר יחיד):</label><input type="text" id="q3hitp_pres" placeholder="___"></div>
+          <div><label style="font-size:0.8rem;color:var(--text-muted);display:block;margin-bottom:3px;">משפט בהקשר אקלימי:</label><input type="text" id="q3hitp_sent" placeholder="הציבור _____ לחיות..."></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 — Beinoni identification -->
+  <div class="card" style="border-right:4px solid var(--earth);">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div style="background:var(--earth);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;flex-shrink:0;">4</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;color:var(--text);">זיהוי בינוני — פועל, שם עצם, או תואר?</div>
+        <div style="font-size:0.84rem;color:var(--text-muted);">(15 נקודות | סגנון שאלון 70%)</div>
+      </div>
+    </div>
+    <p style="font-size:0.91rem;margin-bottom:10px;color:var(--text-mid);">המילים הבאות הן בצורת בינוני. לכל משפט — קבעו: <strong>פועל / שם עצם / תואר</strong> והסבירו:</p>
+    <div style="background:#f7efe8;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:0.85rem;">
+      <strong style="color:var(--earth);">מבחן הפועל:</strong> האם ניתן לשאול "מי <em>עושה</em>?" ולקבל תשובה — <strong>פועל</strong>. האם מתאר שם עצם — <strong>תואר</strong>. האם הוא עצמו שם עצם — <strong>שם עצם</strong>.
+    </div>
+    <div class="overflow-x-auto my-4" style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+        <thead>
+          <tr style="background:var(--surface2);">
+            <th style="padding:9px 12px;text-align:right;color:var(--earth);border-bottom:1px solid var(--border);">#</th>
+            <th style="padding:9px 12px;text-align:right;color:var(--earth);border-bottom:1px solid var(--border);">משפט</th>
+            <th style="padding:9px 12px;text-align:right;color:var(--earth);border-bottom:1px solid var(--border);">המילה</th>
+            <th style="padding:9px 12px;text-align:right;color:var(--earth);border-bottom:1px solid var(--border);">סיווג</th>
+            <th style="padding:9px 12px;text-align:right;color:var(--earth);border-bottom:1px solid var(--border);">הסבר</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:9px 12px;font-weight:700;">א</td>
+            <td style="padding:9px 12px;font-size:0.86rem;">"הנתון <u>המדאיג</u> פורסם השבוע."</td>
+            <td style="padding:8px 12px;font-weight:600;font-style:italic;">המדאיג</td>
+            <td style="padding:5px 8px;"><select><option value="">-- בחר/י --</option><option>פועל (בינוני)</option><option>שם עצם</option><option>תואר</option></select></td>
+            <td style="padding:5px 8px;"><input type="text" placeholder="כי..."></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:9px 12px;font-weight:700;">ב</td>
+            <td style="padding:9px 12px;font-size:0.86rem;">"הפרויקט <u>מתקדם</u> לפי התוכנית."</td>
+            <td style="padding:8px 12px;font-weight:600;font-style:italic;">מתקדם</td>
+            <td style="padding:5px 8px;"><select><option value="">-- בחר/י --</option><option>פועל (בינוני)</option><option>שם עצם</option><option>תואר</option></select></td>
+            <td style="padding:5px 8px;"><input type="text" placeholder="כי..."></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:9px 12px;font-weight:700;">ג</td>
+            <td style="padding:9px 12px;font-size:0.86rem;">"הוא <u>מתקדם</u> בטכנולוגיה, אבל לא בשפות."</td>
+            <td style="padding:8px 12px;font-weight:600;font-style:italic;">מתקדם</td>
+            <td style="padding:5px 8px;"><select><option value="">-- בחר/י --</option><option>פועל (בינוני)</option><option>שם עצם</option><option>תואר</option></select></td>
+            <td style="padding:5px 8px;"><input type="text" placeholder="כי..."></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:9px 12px;font-weight:700;">ד</td>
+            <td style="padding:9px 12px;font-size:0.86rem;">"החברה <u>מפתחת</u> פתרון חדש לאנרגיה."</td>
+            <td style="padding:8px 12px;font-weight:600;font-style:italic;">מפתחת</td>
+            <td style="padding:5px 8px;"><select><option value="">-- בחר/י --</option><option>פועל (בינוני)</option><option>שם עצם</option><option>תואר</option></select></td>
+            <td style="padding:5px 8px;"><input type="text" placeholder="כי..."></td>
+          </tr>
+          <tr>
+            <td style="padding:9px 12px;font-weight:700;">ה</td>
+            <td style="padding:9px 12px;font-size:0.86rem;">"הטכנולוגיה הירוקה היא <u>המפתח</u> לעתיד."</td>
+            <td style="padding:8px 12px;font-weight:600;font-style:italic;">המפתח</td>
+            <td style="padding:5px 8px;"><select><option value="">-- בחר/י --</option><option>פועל (בינוני)</option><option>שם עצם</option><option>תואר</option></select></td>
+            <td style="padding:5px 8px;"><input type="text" placeholder="כי..."></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Q5 — Climate Data + Writing -->
+  <div class="card" style="border:1.5px solid var(--forest);background:linear-gradient(135deg,var(--surface),rgba(26,107,69,0.03));">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div style="background:var(--forest);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;flex-shrink:0;">5</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;color:var(--text);">אוריינות נתונים — הסקת מסקנות + כתיבה</div>
+        <div style="font-size:0.84rem;color:var(--text-muted);">(20 נקודות | סגנון ראמ"ה)</div>
+      </div>
+    </div>
+    <div style="background:rgba(26,107,69,0.07);border:1px solid rgba(26,107,69,0.2);border-radius:8px;padding:12px 14px;margin-bottom:14px;font-size:0.87rem;">
+      עיינו שוב בגרף עליית הטמפרטורה שבלשונית "הטקסט" וענו:
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <label style="font-size:0.88rem;font-weight:700;color:var(--forest);display:block;margin-bottom:6px;">א. (5 נקודות) חשבו: באיזה "קצב" עלתה הטמפרטורה לפי הנתונים? מה הראיה המספרית? הסיקו מסקנה.</label>
+        <textarea id="q5a" rows="3" placeholder="מ-1850 ל-2000 עלתה ___° ב-___ שנה. מ-2000 ל-2025 עלתה ___° ב-___ שנה. המסקנה: ..."></textarea>
+      </div>
+      <div>
+        <label style="font-size:0.88rem;font-weight:700;color:var(--forest);display:block;margin-bottom:6px;">ב. (5 נקודות) הנתון מציין ש-1.5° הוא "הקו האדום". הסבירו בלשונכם: מדוע העלאה "קטנה" של 1.5 מעלות נחשבת סף מסוכן? השתמשו בדוגמה אחת מהטקסט.</label>
+        <textarea id="q5b" rows="3" placeholder="1.5° נחשב מסוכן כי... בטקסט נאמר שכאשר האוקיינוס..."></textarea>
+      </div>
+      <div>
+        <label style="font-size:0.88rem;font-weight:700;color:var(--forest);display:block;margin-bottom:6px;">ג. (10 נקודות — דקדוק) כתבו שלושה משפטים המתארים את הנתון — משפט בכל בניין כבד (פִּיעֵל / פֻּעַל / הִתְפַּעֵל). <strong>סמנו</strong> כל פועל ורשמו בניין + גוף.</label>
+        <textarea id="q5c" rows="5" placeholder="פִּיעֵל: הנתון _____ [בניין: ___ גוף: ___] כי...&#10;פֻּעַל: _____ [בניין: ___ גוף: ___]&#10;הִתְפַּעֵל: _____"></textarea>
+        <div class="section-note">דוגמה: "המדענים <u>פרסמו</u> [פִּיעֵל, עבר, ג׳ זכר רבים] את הנתון בדצמבר."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q6 — Error correction -->
+  <div class="card" style="border-right:4px solid var(--danger);">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div style="background:var(--danger);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;flex-shrink:0;">6</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;color:var(--text);">תיקון שגיאות — עריכה לשונית</div>
+        <div style="font-size:0.84rem;color:var(--text-muted);">(12 נקודות | 2 נקודות לכל שגיאה)</div>
+      </div>
+    </div>
+    <p style="font-size:0.91rem;margin-bottom:14px;color:var(--text-mid);">בקטע הבא יש <strong>6 שגיאות</strong> בפעלי הבניינים הכבדים. מצאו, תקנו, ונמקו:</p>
+    <div style="background:#fef3f2;border:1px solid #fecdca;border-radius:10px;padding:16px;margin-bottom:14px;font-size:0.96rem;line-height:2.3;color:var(--text-mid);">
+      "הוועדה <span style="background:#fdecea;border:1px solid var(--danger);border-radius:3px;padding:1px 4px;color:var(--danger);">מִתְפַּרְסֵם</span> את הדוח בחודש הבא. הנתונים
+      <span style="background:#fdecea;border:1px solid var(--danger);border-radius:3px;padding:1px 4px;color:var(--danger);">פִּרְסְמוּ</span> על ידי מדענים מובילים.
+      ד"ר פרל <span style="background:#fdecea;border:1px solid var(--danger);border-radius:3px;padding:1px 4px;color:var(--danger);">מְחַמֶּמֶת</span> את הקהל בנאומה, בעוד שהציבור
+      <span style="background:#fdecea;border:1px solid var(--danger);border-radius:3px;padding:1px 4px;color:var(--danger);">מִתְחַמֵּם</span> בנתונים. הפרויקטים הירוקים
+      <span style="background:#fdecea;border:1px solid var(--danger);border-radius:3px;padding:1px 4px;color:var(--danger);">מְפֻּתָּח</span> בישראל, והחברות
+      <span style="background:#fdecea;border:1px solid var(--danger);border-radius:3px;padding:1px 4px;color:var(--danger);">מִתְחַיְּבוֹת</span> להשיגם."
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div><label style="font-size:0.78rem;color:var(--text-muted);display:block;margin-bottom:3px;">שגיאה 1:</label><input type="text" id="e1" placeholder="_____ → _____ | כי: ___"></div>
+      <div><label style="font-size:0.78rem;color:var(--text-muted);display:block;margin-bottom:3px;">שגיאה 2:</label><input type="text" id="e2" placeholder="_____ → _____ | כי: ___"></div>
+      <div><label style="font-size:0.78rem;color:var(--text-muted);display:block;margin-bottom:3px;">שגיאה 3:</label><input type="text" id="e3" placeholder="_____ → _____ | כי: ___"></div>
+      <div><label style="font-size:0.78rem;color:var(--text-muted);display:block;margin-bottom:3px;">שגיאה 4:</label><input type="text" id="e4" placeholder="_____ → _____ | כי: ___"></div>
+      <div><label style="font-size:0.78rem;color:var(--text-muted);display:block;margin-bottom:3px;">שגיאה 5:</label><input type="text" id="e5" placeholder="_____ → _____ | כי: ___"></div>
+      <div><label style="font-size:0.78rem;color:var(--text-muted);display:block;margin-bottom:3px;">שגיאה 6:</label><input type="text" id="e6" placeholder="_____ → _____ | כי: ___"></div>
+    </div>
+  </div>
+
+  <!-- Q7 — Creative Writing -->
+  <div class="card" style="border:1.5px dashed var(--sun);background:rgba(232,160,32,0.04);">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+      <div style="background:var(--sun);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;flex-shrink:0;">7</div>
+      <div>
+        <div style="font-weight:700;font-size:1rem;color:var(--sun);">⭐ אתגר — כתיבה רפלקטיבית</div>
+        <div style="font-size:0.84rem;color:var(--text-muted);">(15 נקודות | הרחבה)</div>
+      </div>
+    </div>
+    <p style="font-size:0.91rem;margin-bottom:10px;color:var(--text-mid);">
+      כתבו פסקה (5–6 משפטים) בנושא: <strong>"מה אני עושה ומה ניתן לעשות — בעניין שינוי האקלים"</strong>.<br>
+      <strong>דרישות:</strong>
+    </p>
+    <ul style="padding-right:18px;font-size:0.87rem;color:var(--text-mid);margin-bottom:14px;line-height:2.2;">
+      <li>לפחות <strong>2 פעלים</strong> בפִּיעֵל (פעיל)</li>
+      <li>לפחות <strong>1 פועל</strong> בפֻּעַל (סביל)</li>
+      <li>לפחות <strong>2 פעלים</strong> בהִתְפַּעֵל (רפלקסיבי)</li>
+      <li>סמנו כל פועל ורשמו: [בניין + זמן + גוף]</li>
+    </ul>
+    <textarea id="q7" rows="8" placeholder="בכל יום אני _____ [פִּיעֵל, ___] להפחית פסולת. אנחנו _____ [הִתְפַּעֵל, ___] לאורח חיים..."></textarea>
+    <div class="section-note">💡 טיפ: חשבו על פעולות שאתם עושים + פעולות שנעשות לאדמה + איך מרגישים ומשתנים.</div>
+  </div>
+
+  <!-- Submit -->
+  <div class="card no-print" style="background:linear-gradient(135deg,var(--surface2),var(--surface));border:1.5px solid var(--forest);text-align:center;">
+    <div style="font-size:2rem;margin-bottom:8px;">📤</div>
+    <h3 style="font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:6px;">שליחה למורה</h3>
+    <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px;">לחצו לשליחת דף העבודה המלא</p>
+    <button onclick="submitWS()" style="background:var(--forest);color:#fff;border:none;padding:12px 36px;border-radius:10px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;">
+      שלח/י דף עבודה</button>
+  </div>
+
+</div><!-- /worksheet -->
+
+
+<!-- ════════════════════════════════════
+     TAB 5 — ANSWERS
+════════════════════════════════════ -->
+<div id="ta" class="tab-pane teacher-only">
+
+  <div style="background:linear-gradient(135deg,var(--surface2),var(--surface));border:1.5px solid var(--forest);border-radius:14px;padding:18px 20px;margin-bottom:24px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="font-size:2rem;">🔑</div>
+      <div>
+        <div style="font-weight:800;font-size:1rem;color:var(--text);">מדריך פתרונות מלא — לשימוש מורה בלבד</div>
+        <div style="font-size:0.82rem;color:var(--text-muted);">כולל הסברים מפורטים, רובריקות ודוגמות מצוינות</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--forest);margin-bottom:12px;">שאלה 1 — זיהוי הדגש (14 נקודות)</h3>
+  <div class="ai"><strong>א. פֵּרְסְמוּ</strong> — פִּיעֵל | שורש: פ-ר-ס-מ (4 אותיות — מרובע) | עי"ן: ס׳ (דגש) | עבר, ג׳ זכר רבים</div>
+  <div class="ai"><strong>ב. מְחַמֵּם</strong> — פִּיעֵל | שורש: ח-מ-מ (כפול) | עי"ן: מ"מ השנייה | הווה, זכר יחיד | ⚠️ הדגש בממ"ם = הכפלת האות השורשית</div>
+  <div class="ai ocean"><strong>ג. מְדֻבָּר</strong> — פֻּעַל | שורש: ד-ב-ר | עי"ן: ב׳ (דגש + קיבוץ תחת ד׳) | הווה, זכר יחיד</div>
+  <div class="ai" style="border-color:#7c3aed;background:#ede9fe;"><strong>ד. מִתְעַכֵּב</strong> — הִתְפַּעֵל | שורש: ע-כ-ב | עי"ן: כ׳ (דגש) | הווה, זכר יחיד | תחילית מִתְ</div>
+  <div class="ai"><strong>ה. פִּתְּחָה</strong> — פִּיעֵל | שורש: פ-ת-ח | עי"ן: ת׳ (דגש) | עבר, ג׳ נקבה יחיד</div>
+  <div class="ai ocean"><strong>ו. מְחֻיָּב</strong> — פֻּעַל | שורש: ח-י-ב | עי"ן: י׳ (דגש + קיבוץ תחת ח׳) | הווה, זכר יחיד</div>
+  <div class="ai" style="border-color:#7c3aed;background:#ede9fe;"><strong>ז. מִתְקַשָּׁה</strong> — הִתְפַּעֵל | שורש: ק-ש-ה (ל"ה) | עי"ן: ש׳ (דגש) | הווה, נקבה יחיד | שורש ל"ה</div>
+
+  <!-- Q2 -->
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--forest);margin:24px 0 12px;">שאלה 2 — בינוני שורש ח-מ-מ (16 נקודות)</h3>
+  <div class="overflow-x-auto my-4" style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:8px;">
+    <table style="width:100%;border-collapse:collapse;font-size:0.87rem;">
+      <thead><tr style="background:var(--surface2);">
+        <th style="padding:9px;color:var(--forest);border-bottom:1px solid var(--border);">בניין</th>
+        <th style="padding:9px;color:var(--forest);border-bottom:1px solid var(--border);">זכר יחיד</th>
+        <th style="padding:9px;color:var(--forest);border-bottom:1px solid var(--border);">נקבה יחיד</th>
+        <th style="padding:9px;color:var(--forest);border-bottom:1px solid var(--border);">רבים זכר</th>
+        <th style="padding:9px;color:var(--forest);border-bottom:1px solid var(--border);">רבות נקבה</th>
+      </tr></thead>
+      <tbody>
+        <tr class="rr"><td style="font-weight:700;color:var(--forest);">פִּיעֵל</td><td style="color:var(--forest);font-weight:700;">מְחַמֵּם</td><td style="color:var(--forest);font-weight:700;">מְחַמֶּמֶת</td><td style="color:var(--forest);font-weight:700;">מְחַמְּמִים</td><td style="color:var(--forest);font-weight:700;">מְחַמְּמוֹת</td></tr>
+        <tr class="rr"><td style="font-weight:700;color:var(--ocean);">פֻּעַל</td><td style="color:var(--ocean);font-weight:700;">מְחֻמָּם</td><td style="color:var(--ocean);font-weight:700;">מְחֻמֶּמֶת</td><td style="color:var(--ocean);font-weight:700;">מְחֻמָּמִים</td><td style="color:var(--ocean);font-weight:700;">מְחֻמָּמוֹת</td></tr>
+        <tr class="rr"><td style="font-weight:700;color:#7c3aed;">הִתְפַּעֵל</td><td style="color:#7c3aed;font-weight:700;">מִתְחַמֵּם</td><td style="color:#7c3aed;font-weight:700;">מִתְחַמֶּמֶת</td><td style="color:#7c3aed;font-weight:700;">מִתְחַמְּמִים</td><td style="color:#7c3aed;font-weight:700;">מִתְחַמְּמוֹת</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section-note" style="margin-bottom:16px;">⚠️ שורש כפול: הדגש החזק בממ"ם השנייה מסמן את עי"ן הפועל. פֻּעַל = קיבוץ תחת מ"מ ראשונה.</div>
+
+  <!-- Q3 -->
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--forest);margin:24px 0 12px;">שאלה 3 — טריו הבניינים: א-ר-ג-ן (18 נקודות)</h3>
+  <div class="ai"><strong>פִּיעֵל:</strong> עבר = אִרְגֵּן | הווה = מְאַרְגֵּן | משפט: "הוועדה <em>אִרְגְּנָה</em> את ועידת האקלים השנה."</div>
+  <div class="ai ocean"><strong>פֻּעַל:</strong> עבר = אֻרְגַּן | הווה = מְאֻרְגָּן | משפט: "הכנס האקלימי <em>אֻרְגַּן</em> על ידי האו"ם בדצמבר."</div>
+  <div class="ai" style="border-color:#7c3aed;background:#ede9fe;"><strong>הִתְפַּעֵל:</strong> עבר = הִתְאַרְגֵּן | הווה = מִתְאַרְגֵּן | משפט: "הציבור <em>מִתְאַרְגֵּן</em> לחיים בת-קיימא בלי עזרת הממשלה."</div>
+  <div style="background:#f7efe8;border-radius:8px;padding:10px 14px;font-size:0.84rem;margin-bottom:16px;">
+    <strong style="color:var(--earth);">הסבר סמנטי לניקוד מלא:</strong> פִּיעֵל = מי שמארגן פועל על אחר. פֻּעַל = מושא הארגון קיבל את הפעולה. הִתְפַּעֵל = הנושא ארגן את עצמו/את עצמם.
+  </div>
+
+  <!-- Q4 -->
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--forest);margin:24px 0 12px;">שאלה 4 — זיהוי בינוני (15 נקודות)</h3>
+  <div class="ai"><strong>א. המדאיג</strong> — <span style="background:#fff3cd;padding:2px 8px;border-radius:4px;font-weight:700;font-size:0.88rem;">תואר</span> | "מדאיג" מתאר את "הנתון" — ניתן לשאול "נתון כיצד? — מדאיג"</div>
+  <div class="ai"><strong>ב. מתקדם</strong> (הפרויקט) — <span style="background:#d1e7dd;padding:2px 8px;border-radius:4px;font-weight:700;font-size:0.88rem;">פועל (בינוני)</span> | "הפרויקט עושה מה? — מתקדם" | הִתְפַּעֵל, הווה, זכר יחיד</div>
+  <div class="ai"><strong>ג. מתקדם</strong> (הוא) — <span style="background:#fff3cd;padding:2px 8px;border-radius:4px;font-weight:700;font-size:0.88rem;">תואר</span> | "הוא כיצד? — מתקדם (=מי שמתקדם = אדם מתקדם)" — כאן מוסיף תכונה, לא פעולה</div>
+  <div class="ai"><strong>ד. מפתחת</strong> — <span style="background:#d1e7dd;padding:2px 8px;border-radius:4px;font-weight:700;font-size:0.88rem;">פועל (בינוני)</span> | "החברה עושה מה? — מפתחת" | פִּיעֵל, הווה, נקבה יחיד, יש מושא (פתרון)</div>
+  <div class="ai"><strong>ה. המפתח</strong> — <span style="background:#cfe2ff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:0.88rem;">שם עצם</span> | "הטכנולוגיה היא מה? — המפתח" | שם עצם מוחלט, לא פועל ולא תואר | ⚠️ מקבל ה"א הידיעה כשם עצם</div>
+
+  <!-- Q5 -->
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--forest);margin:24px 0 12px;">שאלה 5 — נתון אקלימי + דקדוק (20 נקודות)</h3>
+  <div class="ai"><strong>א. קצב עליית הטמפרטורה:</strong> 1850–2000: עלייה של 0.7° ב-150 שנה = 0.0047° לשנה. 2000–2025: עלייה של 0.8° ב-25 שנה = 0.032° לשנה. <strong>מסקנה: קצב ההתחממות עלה פי ~7 בשנים האחרונות.</strong> (5 נק׳: חישוב + השוואה + מסקנה + שימוש בנתונים מספריים)</div>
+  <div class="ai"><strong>ב. "קו האדום" של 1.5°:</strong> תשובה לדוגמה: 1.5° נשמע קטן, אך בגלל שהאוקיינוס והאטמוספרה הם מערכות מורכבות, שינוי קטן "מתגבר" לאירועי קיצון — סופות, שיטפונות, בצורת. בטקסט נאמר: "כמו סיר לחץ — הכל מתעצם". (5 נק׳: הסבר + דוגמה מהטקסט + ניסוח)</div>
+  <div class="ai"><strong>ג. דוגמות מצוינות:</strong><br>
+    פִּיעֵל: "המדענים <u>פִּרְסְמוּ</u> [פִּיעֵל, עבר, ג׳ זכר רבים] את הנתונים בוועידת האקלים."<br>
+    פֻּעַל: "הממצאים <u>תֻּאֲרוּ</u> [פֻּעַל, עבר, ג׳ זכר רבים] כמדאיגים ביותר."<br>
+    הִתְפַּעֵל: "המדינות <u>מִתְחַיְּבוֹת</u> [הִתְפַּעֵל, הווה, נקבה רבות] להפחית פליטות." (10 נק׳: 3 לכל משפט + 1 לניסוח)</div>
+
+  <!-- Q6 -->
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--forest);margin:24px 0 12px;">שאלה 6 — תיקון שגיאות (12 נקודות)</h3>
+  <div class="ai danger"><strong>שגיאה 1: מִתְפַּרְסֵם →</strong> <strong>תְּפַרְסֵם</strong> (עתיד) או <strong>מְפַרְסֶמֶת</strong> (הווה) | "הוועדה" = נקבה, הפועל בפִּיעֵל — לא הִתְפַּעֵל; גם "מִתְפַּרְסֵם" = רפלקסיבי, לא מתאים כאן.</div>
+  <div class="ai danger"><strong>שגיאה 2: פִּרְסְמוּ (פעיל) → פֻּרְסְמוּ</strong> | "הנתונים פורסמו" — סביל (פֻּעַל), לא פִּיעֵל. הנושא קיבל את הפעולה.</div>
+  <div class="ai danger"><strong>שגיאה 3: מְחַמֶּמֶת →</strong> <strong>מְחַמֵּמֶת</strong> (פִּיעֵל, נקבה יחיד) | ⚠️ ניקוד: מְחַמֶּמֶת נכון בצורה אחת, אך בהקשר "ד"ר פרל מְחַמֵּמֶת את הקהל" — הפרש ניקוד + הבהרת הקשר: פעולה עצימה.</div>
+  <div class="ai danger"><strong>שגיאה 4: הציבור מִתְחַמֵּם →</strong> בניין זה נכון מבחינת הצורה, אך <strong>הקשר שגוי:</strong> "מתחמם בנתונים" — צריך: <strong>מִתְחַמֵּם</strong> = מתחמם פיזית. בהקשר "מתלהב" = צריך: <strong>מִתְלַהֵב</strong>. [⚠️ שגיאה סמנטית — קבל הסבר על אי-התאמה להקשר]</div>
+  <div class="ai danger"><strong>שגיאה 5: מְפֻּתָּח → מְפֻּתָּחִים</strong> | "הפרויקטים" — רבים זכר; מְפֻּתָּח = יחיד. צורה נכונה: מְפֻּתָּחִים</div>
+  <div class="ai danger"><strong>שגיאה 6: מִתְחַיְּבוֹת →</strong> צורה נכונה היא <strong>מִתְחַיְּבוֹת</strong> (הִתְפַּעֵל, הווה, נקבה רבות) — זו עשויה להיות נכונה! אם "החברות" = נקבה רבות, הצורה מדויקת. [⚠️ שגיאה: "להשיגם" — "פרויקטים" = זכר, לכן "להשיגם" = נכון. קבל הסבר.]</div>
+  <div style="background:#fef3f2;border:1px solid #fecdca;border-radius:8px;padding:10px 14px;font-size:0.83rem;margin-bottom:16px;">
+    <strong style="color:var(--danger);">הערת ניקוד:</strong> שגיאות 4 ו-6 פתוחות לפרשנות — תנו נקודות מלאות לכל תשובה עם נימוק עקבי. המטרה: תלמידים יפנימו שבניין + הקשר = שניהם חשובים.
+  </div>
+
+  <!-- Q7 Rubric -->
+  <h3 style="font-family:'Secular One',sans-serif;font-size:1.1rem;color:var(--sun);margin:24px 0 12px;">שאלה 7 — כתיבה רפלקטיבית (15 נקודות)</h3>
+  <div class="overflow-x-auto my-4" style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:12px;">
+    <table style="width:100%;border-collapse:collapse;font-size:0.87rem;">
+      <thead><tr style="background:var(--surface2);">
+        <th style="padding:9px;text-align:right;color:var(--sun);border-bottom:1px solid var(--border);">קריטריון</th>
+        <th style="padding:9px;text-align:center;color:var(--forest);border-bottom:1px solid var(--border);">מלא</th>
+        <th style="padding:9px;text-align:center;color:var(--sun);border-bottom:1px solid var(--border);">חלקי</th>
+        <th style="padding:9px;text-align:center;color:var(--danger);border-bottom:1px solid var(--border);">לא</th>
+      </tr></thead>
+      <tbody>
+        <tr class="rr"><td>2 פעלים בפִּיעֵל — מסומנים ומנותחים</td><td style="text-align:center;">5</td><td style="text-align:center;">2</td><td style="text-align:center;">0</td></tr>
+        <tr class="rr"><td>1 פועל בפֻּעַל — מסומן ומנותח</td><td style="text-align:center;">3</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td></tr>
+        <tr class="rr"><td>2 פעלים בהִתְפַּעֵל — מסומנים ומנותחים</td><td style="text-align:center;">5</td><td style="text-align:center;">2</td><td style="text-align:center;">0</td></tr>
+        <tr class="rr"><td>הפסקה קוהרנטית, ניסוח ורעיון ברורים</td><td style="text-align:center;">2</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td></tr>
+      </tbody>
+      <tfoot><tr style="background:var(--surface2);font-weight:700;"><td style="padding:9px;">סה"כ</td><td style="text-align:center;padding:9px;">15</td><td></td><td></td></tr></tfoot>
+    </table>
+  </div>
+  <div style="background:var(--surface2);border:1px solid var(--forest);border-radius:10px;padding:14px 16px;font-size:0.87rem;margin-bottom:24px;">
+    <strong style="color:var(--forest);">דוגמת תשובה מצוינת:</strong><br>
+    "בכל יום אני <u>מנסה</u> [פִּיעֵל, הווה, ג׳ זכר] להפחית פסולת ו<u>מפריד</u> [פִּיעֵל, הווה, ג׳ זכר] פלסטיק ממזון. השנה הבית שלנו <u>אֻצַּיֵּד</u> [פֻּעַל, עבר, ג׳ זכר] בלוחות סולאריים. אנחנו <u>מִתְחַיְּבִים</u> [הִתְפַּעֵל, הווה, זכר רבים] לא לקנות בקבוקי פלסטיק. לפעמים אני <u>מִתְיַאֵשׁ</u> [הִתְפַּעֵל, הווה, ג׳ זכר] כשרואה כמה אחרים לא אכפת להם, אבל כל פעולה קטנה <u>מחייבת</u> [פִּיעֵל, הווה, ג׳ נקבה] תגובה."
+  </div>
+
+  <!-- Score Card -->
+  <div class="card" style="background:linear-gradient(135deg,#0d3320,#1a6b45);color:#fff;text-align:center;">
+    <div style="font-family:'Secular One',sans-serif;font-size:1.2rem;margin-bottom:16px;">סה"כ ניקוד שיעור 3</div>
+    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:14px;">
+      <div class="score-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);">
+        <div style="font-size:1.4rem;font-weight:900;color:#a8f0c8;">14</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.6);">שאלה 1</div>
+      </div>
+      <div class="score-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);">
+        <div style="font-size:1.4rem;font-weight:900;color:#a8f0c8;">16</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.6);">שאלה 2</div>
+      </div>
+      <div class="score-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);">
+        <div style="font-size:1.4rem;font-weight:900;color:#a8f0c8;">18</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.6);">שאלה 3</div>
+      </div>
+      <div class="score-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);">
+        <div style="font-size:1.4rem;font-weight:900;color:#ffd93d;">15</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.6);">שאלה 4</div>
+      </div>
+      <div class="score-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);">
+        <div style="font-size:1.4rem;font-weight:900;color:#a8f0c8;">20</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.6);">שאלה 5</div>
+      </div>
+      <div class="score-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);">
+        <div style="font-size:1.4rem;font-weight:900;color:#ff9f7f;">12</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.6);">שאלה 6</div>
+      </div>
+      <div class="score-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);">
+        <div style="font-size:1.4rem;font-weight:900;color:#ffd93d;">15</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.6);">שאלה 7</div>
+      </div>
+      <div style="background:#a8f0c8;border-radius:100px;padding:10px 22px;display:inline-block;">
+        <div style="font-size:1.9rem;font-weight:900;color:#0d3320;">110</div>
+        <div style="font-size:0.7rem;color:#0d3320;">סה"כ</div>
+      </div>
+    </div>
+    <div style="font-size:0.77rem;color:rgba(255,255,255,0.45);">שאלות 1–6 = 95 נק׳ | שאלה 7 = 15 נק׳ (הרחבה)</div>
+  </div>
+
+</div><!-- /answers -->
+
+
+<!-- ═══ TAB: ASSESSMENT — lesson 3 ═══ -->
+<div id="tab-assess" class="tab-pane">
+  <div style="max-width:660px;margin:0 auto;padding:8px 0">
+    <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:8px">
+      📊 הערכה עצמית — שיעור 3</h2>
+    <p style="font-size:.87rem;color:#6b7280;margin-bottom:18px">
+      מלאו את דף העבודה ולחצו על הכפתור לסיכום</p>
+    <div id="assessment-content-legacy"
+      style="display:none;background:#ffffff;border:1.5px solid #dde3f0;
+             border-radius:12px;padding:20px;
+             direction:rtl;text-align:right;min-height:60px">
+      <p style="color:#9ca3af;font-size:.87rem;text-align:center;padding:8px 0">לחצו על כפתור "חשב סיכום" לצפייה בלשונית ההערכה</p>
+    </div>
+    <button
+      onclick="if(window.calcAssessment)window.calcAssessment()"
+      style="margin-top:14px;background:#2d3561;color:#fff;border:none;
+             padding:12px 24px;border-radius:9px;
+             font-family:'Heebo','Assistant',sans-serif;
+             font-size:.93rem;font-weight:700;cursor:pointer;
+             width:100%;display:block">
+      חשב סיכום מילוי ⇩
+    </button>
+  </div>
+</div>
+
+<!-- ═══ DASHBOARD TAB ═══ -->
+<div id="tab-dashboard" class="tab-pane">
+  <div style="max-width:660px;margin:0 auto;padding:8px 0">
+    <div style="background:linear-gradient(135deg,#0c2040,#1a3a6b);color:#fff;border-radius:14px;padding:18px 20px;margin-bottom:18px;display:flex;align-items:center;gap:14px;">
+      <div style="font-size:2.5rem;">📊</div>
+      <div>
+        <div style="font-family:'Secular One',sans-serif;font-size:1.15rem;">לוח בקרה — Dashboard</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- Scripts -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js"></script>
+<script src="shared-logic.js"></script>
+
+</body>
+</html>

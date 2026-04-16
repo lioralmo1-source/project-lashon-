@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>לשון Lesson — פלטפורמה דיגיטלית ללימודי עברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #login-screen {
+      position: fixed; inset: 0; z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 2rem 1.5rem; overflow: hidden;
+      background: linear-gradient(160deg, #060b18 0%, #0d1b38 50%, #07111f 100%);
+    }
+    #login-screen::before {
+      content: ''; position: absolute; border-radius: 50%; pointer-events: none;
+      width: 800px; height: 800px; top: -300px; right: -150px;
+      background: radial-gradient(circle, rgba(26, 86, 219, 0.16) 0%, transparent 60%);
+      animation: gl1 10s ease-in-out infinite alternate;
+    }
+    @keyframes gl1 { from { transform: scale(1) translateY(0); } to { transform: scale(1.2) translateY(-25px); } }
+    .ls-header { position: relative; z-index: 1; text-align: center; margin-bottom: 2.8rem; animation: fadeInDown 0.65s ease both; }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
+    .ls-logo-wrap { display: inline-flex; align-items: center; justify-content: center; width: 68px; height: 68px; border-radius: 18px; background: linear-gradient(145deg, #162040, #1e3060); border: 1px solid rgba(202, 138, 4, 0.3); box-shadow: 0 10px 36px rgba(0, 0, 0, 0.4); margin-bottom: 1rem; animation: logoPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both; }
+    @keyframes logoPop { from { opacity: 0; transform: scale(0.55); } to { opacity: 1; transform: scale(1); } }
+    .ls-logo { font-size: 2.4rem; filter: drop-shadow(0 3px 14px rgba(26, 86, 219, 0.55)); }
+    .ls-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.6rem, 4.5vw, 2.4rem); color: #fff; margin-bottom: 0.35rem; animation: fadeInUp 0.55s ease 0.3s both; }
+    .ls-title em { font-style: normal; background: linear-gradient(90deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .ls-sub { font-size: clamp(0.8rem, 2vw, 0.95rem); color: rgba(255, 255, 255, 0.42); animation: fadeInUp 0.55s ease 0.4s both; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .ls-cards { position: relative; z-index: 1; width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 0.85rem; animation: fadeInUp 0.55s ease 0.58s both; }
+    .lc { border-radius: var(--radius-xl); padding: 1.4rem 1.8rem; cursor: pointer; border: 1px solid transparent; transition: all 0.22s; text-align: right; user-select: none; -webkit-tap-highlight-color: transparent; background: none; display: flex; align-items: center; gap: 1rem; min-height: 48px; }
+    .lc:hover { transform: translateY(-3px); }
+    .lc-student { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.12); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
+    .lc-student:hover { background: rgba(255, 255, 255, 0.12); box-shadow: 0 10px 36px rgba(26, 86, 219, 0.22); }
+    .lc-teacher { background: rgba(202, 138, 4, 0.08); border-color: rgba(202, 138, 4, 0.22); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); }
+    .lc-teacher:hover { background: rgba(202, 138, 4, 0.12); box-shadow: 0 10px 36px rgba(202, 138, 4, 0.18); }
+    .lc-icon-wrap { width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; background: rgba(255, 255, 255, 0.06); }
+    .lc-student .lc-icon-wrap { background: rgba(77, 138, 255, 0.12); }
+    .lc-teacher .lc-icon-wrap { background: rgba(202, 138, 4, 0.12); }
+    .lc-text { flex: 1; }
+    .lc-label { font-family: 'Secular One', sans-serif; font-size: 0.97rem; color: #fff; margin-bottom: 0.15rem; }
+    .lc-desc { font-size: 0.72rem; color: rgba(255, 255, 255, 0.4); }
+    .lc-arrow { color: rgba(255, 255, 255, 0.3); transition: all 0.18s; flex-shrink: 0; }
+    .lc:hover .lc-arrow { transform: translateX(-3px); color: rgba(255, 255, 255, 0.6); }
+    .teacher-settings { position: relative; z-index: 1; width: 100%; max-width: 400px; margin-top: 0.6rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-xl); padding: 1.3rem 1.5rem; display: none; box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5); }
+    .teacher-settings.open { display: block; }
+    .settings-label { font-size: 0.68rem; font-weight: 700; color: rgba(255, 255, 255, 0.35); margin-bottom: 0.38rem; }
+    .settings-input { width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius); background: rgba(255, 255, 255, 0.06); border: 1.5px solid rgba(255, 255, 255, 0.1); color: #fff; font-size: 0.9rem; outline: none; transition: all 0.16s; min-height: 48px; font-family: 'Heebo', sans-serif; }
+    .settings-input::placeholder { color: rgba(255, 255, 255, 0.2); }
+    .settings-input:focus { border-color: #4d8aff; box-shadow: 0 0 0 3px rgba(77, 138, 255, 0.25); }
+    .settings-row { display: flex; gap: 0.6rem; margin-top: 1rem; }
+    .settings-btn { flex: 1; padding: 0.75rem 1.3rem; border: none; border-radius: var(--radius-pill); font-size: 0.85rem; font-weight: 700; cursor: pointer; white-space: nowrap; min-height: 48px; font-family: 'Heebo', sans-serif; }
+    .settings-btn-save { background: linear-gradient(135deg, #34d875, #2ecc71); color: #fff; }
+    .settings-btn-save:hover { transform: translateY(-1px); }
+    .settings-btn-cancel { background: rgba(255, 255, 255, 0.12); color: rgba(255, 255, 255, 0.7); }
+    .lessons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .lesson-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center; cursor: pointer; transition: all 0.2s; box-shadow: var(--shadow); }
+    .lesson-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+    .lesson-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .lesson-title { font-family: 'Secular One', sans-serif; font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem; }
+    .lesson-meta { font-size: 0.8rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<section id="login-screen">
+  <div class="ls-header">
+    <div class="ls-logo-wrap"><span class="ls-logo">📚</span></div>
+    <h1 class="ls-title"><em>לשון</em> Lesson</h1>
+    <p class="ls-sub">פלטפורמה דיגיטלית ללימודי עברית</p>
+  </div>
+  
+  <div class="ls-cards">
+    <button class="lc lc-student" onclick="goToLessons()">
+      <div class="lc-icon-wrap">👨‍🎓</div>
+      <div class="lc-text">
+        <span class="lc-label">תלמיד/ה</span>
+        <span class="lc-desc">גש לשיעורים והשלם דפי עבודה</span>
+      </div>
+      <span class="lc-arrow">←</span>
+    </button>
+    
+    <button class="lc lc-teacher" onclick="toggleTeacherSettings()">
+      <div class="lc-icon-wrap">👩‍🏫</div>
+      <div class="lc-text">
+        <span class="lc-label">מורה</span>
+        <span class="lc-desc">הגדר פרטים וקבל דפי עבודה</span>
+      </div>
+      <span class="lc-arrow">←</span>
+    </button>
+    
+    <div class="teacher-settings" id="teacher-panel">
+      <div>
+        <label class="settings-label">שם מלא</label>
+        <input type="text" id="teacher-name" class="settings-input" placeholder="שם המורה...">
+      </div>
+      <div style="margin-top: 0.75rem;">
+        <label class="settings-label">דוא״ל</label>
+        <input type="email" id="teacher-email" class="settings-input" placeholder="אימייל למשלוח דפים">
+      </div>
+      <div style="margin-top: 0.75rem;">
+        <label class="settings-label">וואטסאפ</label>
+        <input type="text" id="teacher-whatsapp" class="settings-input" placeholder="+972501234567">
+      </div>
+      <div class="settings-row">
+        <button class="settings-btn settings-btn-save" onclick="saveTeacherSettings()">✓ שמור</button>
+        <button class="settings-btn settings-btn-cancel" onclick="toggleTeacherSettings()">ביטול</button>
+      </div>
+      <p style="font-size: 0.6rem; color: rgba(255, 255, 255, 0.14); text-align: center; margin-top: 0.55rem;">
+        הפרטים נשמרים בעננים ונמסרים בעת קבלת דפי עבודה.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- LESSONS VIEW -->
+<section id="lessons-view" style="display: none; padding: 2rem 1.5rem; background: var(--bg); min-height: 100vh;">
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <button onclick="backToLogin()" style="margin-bottom: 1.5rem; padding: 8px 16px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'Heebo', sans-serif; font-weight: 700; min-height: 44px;">← חזרה</button>
+    <h1 style="font-family: 'Secular One', sans-serif; color: var(--text); margin-bottom: 2rem;">🎓 בחר/י שיעור</h1>
+    
+    <div class="lessons-grid">
+      <div class="lesson-card" onclick="openLesson('lesson1_refactored.html')">
+        <div class="lesson-icon">📖</div>
+        <div class="lesson-title">שיעור 1</div>
+        <div class="lesson-meta">השורש ושבעת הבניינים</div>
+      </div>
+      <div class="lesson-card" onclick="openLesson('lesson2_refactored.html')">
+        <div class="lesson-icon">✏️</div>
+        <div class="lesson-title">שיעור 2</div>
+        <div class="lesson-meta">בניין קַל (פָּעַל)</div>
+      </div>
+      <div class="lesson-card" onclick="openLesson('lesson3_binyanim_kvedim_v3.html')">
+        <div class="lesson-icon">🎯</div>
+        <div class="lesson-title">שיעור 3</div>
+        <div class="lesson-meta">בניינים כבדים</div>
+      </div>
+      <div class="lesson-card" onclick="openLesson('lesson4_hifil_hufal_v3.html')">
+        <div class="lesson-icon">⚡</div>
+        <div class="lesson-title">שיעור 4</div>
+        <div class="lesson-meta">הִפְעִיל וְהֻפְעַל</div>
+      </div>
+      <div class="lesson-card" onclick="openLesson('lesson5_summary_mruba_v3.html')">
+        <div class="lesson-icon">🏁</div>
+        <div class="lesson-title">שיעור 5</div>
+        <div class="lesson-meta">סיכום ודוגמאות מרובות</div>
+      </div>
+      <div class="lesson-card" onclick="openLesson('lesson6_bagrut_exam_v3.html')">
+        <div class="lesson-icon">🎓</div>
+        <div class="lesson-title">שיעור 6</div>
+        <div class="lesson-meta">בחינת בגרות</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js"></script>
+<script src="shared-logic.js"></script>
+
+<script>
+  function toggleTeacherSettings() {
+    const panel = document.getElementById('teacher-panel');
+    const teacher = loadTeacherDetails();
+    if (panel.classList.contains('open')) {
+      panel.classList.remove('open');
+    } else {
+      panel.classList.add('open');
+      if (teacher.name) document.getElementById('teacher-name').value = teacher.name;
+      if (teacher.email) document.getElementById('teacher-email').value = teacher.email;
+      if (teacher.whatsapp) document.getElementById('teacher-whatsapp').value = teacher.whatsapp;
+    }
+  }
+  
+  function saveTeacherSettings() {
+    const name = document.getElementById('teacher-name').value.trim();
+    const email = document.getElementById('teacher-email').value.trim();
+    const whatsapp = document.getElementById('teacher-whatsapp').value.trim();
+    if (!name) {
+      alert('אנא הקלידו את שם המורה');
+      return;
+    }
+    if (!email && !whatsapp) {
+      alert('אנא הוסיפו לפחות דוא״ל או מספר וואטסאפ');
+      return;
+    }
+    saveTeacherDetails(name, email, whatsapp).then(success => {
+      if (success) {
+        alert('✓ פרטי המורה נשמרו בהצלחה!');
+        toggleTeacherSettings();
+      } else {
+        alert('שמרנו את הפרטים בהתקן');
+      }
+    });
+  }
+  
+  function goToLessons() {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('lessons-view').style.display = 'block';
+  }
+  
+  function backToLogin() {
+    document.getElementById('lessons-view').style.display = 'none';
+    document.getElementById('login-screen').style.display = 'flex';
+  }
+  
+  function openLesson(filename) {
+    window.location.href = filename;
+  }
+</script>
+</body>
+</html>
