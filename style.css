@@ -805,3 +805,18 @@ select {
 .slide-up {
   animation: slideUp 0.4s ease-out;
 }
+/* הסתרת פתרונות כברירת מחדל */
+.answer-content, .ctable td:nth-child(2), .ctable td:nth-child(3) {
+    display: none;
+}
+
+/* הצגת פתרונות רק כאשר המצב 'מורה' פעיל */
+body.teacher-mode .answer-content, 
+body.teacher-mode .ctable td:nth-child(2), 
+body.teacher-mode .ctable td:nth-child(3) {
+    display: table-cell !important;
+}
+
+body.teacher-mode .answer-item {
+    display: block !important;
+}
