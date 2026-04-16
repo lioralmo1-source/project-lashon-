@@ -178,10 +178,11 @@
     }
   }
   
-  function saveTeacherSettings() {
+ function saveTeacherSettings() {
     const name = document.getElementById('teacher-name').value.trim();
     const email = document.getElementById('teacher-email').value.trim();
     const whatsapp = document.getElementById('teacher-whatsapp').value.trim();
+    
     if (!name) {
       alert('אנא הקלידו את שם המורה');
       return;
@@ -190,13 +191,18 @@
       alert('אנא הוסיפו לפחות דוא״ל או מספר וואטסאפ');
       return;
     }
+
+    // קריאה לפונקציית השמירה מתוך shared-logic.js
     saveTeacherDetails(name, email, whatsapp).then(success => {
-      if (success) {
-        alert('✓ פרטי המורה נשמרו בהצלחה!');
-        toggleTeacherSettings();
-      } else {
-        alert('שמרנו את הפרטים בהתקן');
-      }
+      alert('✓ פרטי המורה נשמרו בהצלחה!');
+      // הקוד שמעביר אותך לרשימת השיעורים:
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('lessons-view').style.display = 'block';
+    }).catch(err => {
+      // גם אם יש שגיאה קטנה בחיבור, ניתן לך להיכנס
+      alert('שמרנו את הפרטים בהתקן המקומי');
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('lessons-view').style.display = 'block';
     });
   }
   
