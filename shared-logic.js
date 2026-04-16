@@ -1,29 +1,51 @@
-const firebase = {
-    apps: [],
-    initializeApp: () => ({}),
-    firestore: () => ({
-        collection: () => ({ add: () => Promise.resolve() })
+// מניעת שגיאות Firebase - יצירת אובייקט דמה
+window.firebase = {
+  initializeApp: () => ({}),
+  firestore: () => ({
+    collection: () => ({
+      doc: () => ({ set: () => Promise.resolve() }),
+      add: () => Promise.resolve()
     })
+  }),
+  auth: () => ({}),
+  analytics: () => ({})
 };
 
-// פונקציית מעבר דפים פשוטה
-function showTab(tabId, btn) {
-    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(tabId).classList.add('active');
-    btn.classList.add('active');
-}
+// פונקציית מעבר דפים
+window.showTab = function(tabId, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  const target = document.getElementById(tabId);
+  if (target) target.classList.add('active');
+  if (btn) btn.classList.add('active');
+};
 
-// טיימר בסיסי
-let timer;
-function startTimer() {
-    let time = 45 * 60;
+// ניהול מורה בזיכרון המקומי בלבד
+window.saveTeacherDetails = async function(name, email, whatsapp) {
+  localStorage.setItem('teacherName', name);
+  localStorage.setItem('teacherEmail', email);
+  localStorage.setItem('teacherWhatsapp', whatsapp);
+  localStorage.setItem('teacherId', 'local_' + Date.now());
+  return true;
+};
+
+// פונקציות עזר שחסרות לך
+window.loadTeacherDetails = () => ({
+  name: localStorage.getItem('teacherName') || '',
+  email: localStorage.getItem('teacherEmail') || ''
+});
+
+window.initFirebase = () => { console.log("Firebase simulation active"); };
+
+// טיימר פשוט
+let timeRemaining = 45 * 60;
+window.startTimer = function() {
+  setInterval(() => {
+    if (timeRemaining <= 0) return;
+    timeRemaining--;
+    const mins = Math.floor(timeRemaining / 60);
+    const secs = timeRemaining % 60;
     const display = document.getElementById('timer-display');
-    if(timer) clearInterval(timer);
-    timer = setInterval(() => {
-        let mins = Math.floor(time / 60);
-        let secs = time % 60;
-        display.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-        if (--time < 0) clearInterval(timer);
-    }, 1000);
-}
+    if (display) display.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  }, 1000);
+};
