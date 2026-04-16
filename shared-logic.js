@@ -11,20 +11,16 @@ window.firebase = {
   analytics: () => ({})
 };
 
-// פונקציית מעבר דפים בין הטאבים בשיעור
+// פונקציית מעבר דפים
 window.showTab = function(tabId, btn) {
-  const panes = document.querySelectorAll('.tab-pane');
-  panes.forEach(p => p.classList.remove('active'));
-  
-  const buttons = document.querySelectorAll('.tab-btn');
-  buttons.forEach(b => b.classList.remove('active'));
-  
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   const target = document.getElementById(tabId);
   if (target) target.classList.add('active');
   if (btn) btn.classList.add('active');
 };
 
-// שמירת פרטי המורה בזיכרון המקומי של הדפדפן בלבד
+// שמירת פרטי המורה בזיכרון המקומי בלבד
 window.saveTeacherDetails = async function(name, email, whatsapp) {
   localStorage.setItem('teacherName', name);
   localStorage.setItem('teacherEmail', email);
@@ -33,14 +29,17 @@ window.saveTeacherDetails = async function(name, email, whatsapp) {
   return true;
 };
 
-// טיימר פשוט עבור השיעור
+// פונקציות עזר וטיימר
+window.initFirebase = () => { console.log("Firebase simulation active"); };
+window.loadTeacherDetails = () => ({
+  name: localStorage.getItem('teacherName') || '',
+  email: localStorage.getItem('teacherEmail') || ''
+});
+
 let timeRemaining = 45 * 60;
 window.startTimer = function() {
-  const timerInterval = setInterval(() => {
-    if (timeRemaining <= 0) {
-        clearInterval(timerInterval);
-        return;
-    }
+  setInterval(() => {
+    if (timeRemaining <= 0) return;
     timeRemaining--;
     const mins = Math.floor(timeRemaining / 60);
     const secs = timeRemaining % 60;
@@ -48,10 +47,3 @@ window.startTimer = function() {
     if (display) display.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   }, 1000);
 };
-
-// פונקציות עזר נוספות
-window.initFirebase = () => { console.log("Firebase simulation active"); };
-window.loadTeacherDetails = () => ({
-  name: localStorage.getItem('teacherName') || '',
-  email: localStorage.getItem('teacherEmail') || ''
-});
