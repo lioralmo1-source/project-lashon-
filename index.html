@@ -210,9 +210,10 @@
     document.getElementById('login-screen').style.display = 'flex';
   }
   
-  function openLesson(filename) {
-window.location.href = 'lessons-hub.html';
-  }
+function openLesson(filename) {
+  // הפונקציה מקבלת את שם הקובץ ומעבירה אליו את המשתמש
+  window.location.href = filename;
+}
 </script>
 </body>
 </html>
