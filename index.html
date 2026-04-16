@@ -7,198 +7,170 @@
   <link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* תיקון למסך הלוגין - מאפשר גלילה בטלפונים */
     #login-screen {
-      position: fixed; inset: 0; z-index: 999;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 2rem 1.5rem; overflow: hidden;
+      position: relative; 
+      min-height: 100vh;
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: flex-start; /* מתחיל מלמעלה כדי שיהיה מקום לגלול */
+      padding: 2rem 1rem; 
       background: linear-gradient(160deg, #060b18 0%, #0d1b38 50%, #07111f 100%);
+      overflow-y: auto; /* מאפשר גלילה אנכית */
     }
-    #login-screen::before {
-      content: ''; position: absolute; border-radius: 50%; pointer-events: none;
-      width: 800px; height: 800px; top: -300px; right: -150px;
-      background: radial-gradient(circle, rgba(26, 86, 219, 0.16) 0%, transparent 60%);
-      animation: gl1 10s ease-in-out infinite alternate;
+
+    .ls-header { margin-bottom: 2rem; margin-top: 1rem; text-align: center; }
+    
+    .ls-cards { width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 0.8rem; }
+
+    /* עיצוב כפתורי הבחירה */
+    .lc { 
+      border-radius: 16px; 
+      padding: 1.2rem; 
+      cursor: pointer; 
+      border: 1px solid rgba(255,255,255,0.1); 
+      background: rgba(255,255,255,0.05);
+      display: flex; 
+      align-items: center; 
+      gap: 12px; 
+      color: white;
+      width: 100%;
     }
-    @keyframes gl1 { from { transform: scale(1) translateY(0); } to { transform: scale(1.2) translateY(-25px); } }
-    .ls-header { position: relative; z-index: 1; text-align: center; margin-bottom: 2.8rem; animation: fadeInDown 0.65s ease both; }
-    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
-    .ls-logo-wrap { display: inline-flex; align-items: center; justify-content: center; width: 68px; height: 68px; border-radius: 18px; background: linear-gradient(145deg, #162040, #1e3060); border: 1px solid rgba(202, 138, 4, 0.3); box-shadow: 0 10px 36px rgba(0, 0, 0, 0.4); margin-bottom: 1rem; animation: logoPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both; }
-    @keyframes logoPop { from { opacity: 0; transform: scale(0.55); } to { opacity: 1; transform: scale(1); } }
-    .ls-logo { font-size: 2.4rem; filter: drop-shadow(0 3px 14px rgba(26, 86, 219, 0.55)); }
-    .ls-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.6rem, 4.5vw, 2.4rem); color: #fff; margin-bottom: 0.35rem; animation: fadeInUp 0.55s ease 0.3s both; }
-    .ls-title em { font-style: normal; background: linear-gradient(90deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .ls-sub { font-size: clamp(0.8rem, 2vw, 0.95rem); color: rgba(255, 255, 255, 0.42); animation: fadeInUp 0.55s ease 0.4s both; }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-    .ls-cards { position: relative; z-index: 1; width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 0.85rem; animation: fadeInUp 0.55s ease 0.58s both; }
-    .lc { border-radius: var(--radius-xl); padding: 1.4rem 1.8rem; cursor: pointer; border: 1px solid transparent; transition: all 0.22s; text-align: right; user-select: none; -webkit-tap-highlight-color: transparent; background: none; display: flex; align-items: center; gap: 1rem; min-height: 48px; }
-    .lc:hover { transform: translateY(-3px); }
-    .lc-student { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.12); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
-    .lc-student:hover { background: rgba(255, 255, 255, 0.12); box-shadow: 0 10px 36px rgba(26, 86, 219, 0.22); }
-    .lc-teacher { background: rgba(202, 138, 4, 0.08); border-color: rgba(202, 138, 4, 0.22); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); }
-    .lc-teacher:hover { background: rgba(202, 138, 4, 0.12); box-shadow: 0 10px 36px rgba(202, 138, 4, 0.18); }
-    .lc-icon-wrap { width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; background: rgba(255, 255, 255, 0.06); }
-    .lc-student .lc-icon-wrap { background: rgba(77, 138, 255, 0.12); }
-    .lc-teacher .lc-icon-wrap { background: rgba(202, 138, 4, 0.12); }
-    .lc-text { flex: 1; }
-    .lc-label { font-family: 'Secular One', sans-serif; font-size: 0.97rem; color: #fff; margin-bottom: 0.15rem; }
-    .lc-desc { font-size: 0.72rem; color: rgba(255, 255, 255, 0.4); }
-    .lc-arrow { color: rgba(255, 255, 255, 0.3); transition: all 0.18s; flex-shrink: 0; }
-    .lc:hover .lc-arrow { transform: translateX(-3px); color: rgba(255, 255, 255, 0.6); }
-    .teacher-settings { position: relative; z-index: 1; width: 100%; max-width: 400px; margin-top: 0.6rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-xl); padding: 1.3rem 1.5rem; display: none; box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5); }
+
+    /* תיקון פאנל המורה - שיהיה קומפקטי יותר */
+    .teacher-settings { 
+      width: 100%; 
+      background: rgba(255, 255, 255, 0.08); 
+      border: 1px solid rgba(255, 255, 255, 0.15); 
+      border-radius: 20px; 
+      padding: 1.5rem; 
+      display: none; 
+      margin-top: 0.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
     .teacher-settings.open { display: block; }
-    .settings-label { font-size: 0.68rem; font-weight: 700; color: rgba(255, 255, 255, 0.35); margin-bottom: 0.38rem; }
-    .settings-input { width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius); background: rgba(255, 255, 255, 0.06); border: 1.5px solid rgba(255, 255, 255, 0.1); color: #fff; font-size: 0.9rem; outline: none; transition: all 0.16s; min-height: 48px; font-family: 'Heebo', sans-serif; }
-    .settings-input::placeholder { color: rgba(255, 255, 255, 0.2); }
-    .settings-input:focus { border-color: #4d8aff; box-shadow: 0 0 0 3px rgba(77, 138, 255, 0.25); }
-    .settings-row { display: flex; gap: 0.6rem; margin-top: 1rem; }
-    .settings-btn { flex: 1; padding: 0.75rem 1.3rem; border: none; border-radius: var(--radius-pill); font-size: 0.85rem; font-weight: 700; cursor: pointer; white-space: nowrap; min-height: 48px; font-family: 'Heebo', sans-serif; }
-    .settings-btn-save { background: linear-gradient(135deg, #34d875, #2ecc71); color: #fff; }
-    .settings-btn-save:hover { transform: translateY(-1px); }
-    .settings-btn-cancel { background: rgba(255, 255, 255, 0.12); color: rgba(255, 255, 255, 0.7); }
-    .lessons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem; }
-    .lesson-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center; cursor: pointer; transition: all 0.2s; box-shadow: var(--shadow); }
-    .lesson-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
-    .lesson-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-    .lesson-title { font-family: 'Secular One', sans-serif; font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem; }
-    .lesson-meta { font-size: 0.8rem; color: var(--text-muted); }
+
+    .settings-input { 
+      width: 100%; 
+      padding: 0.7rem; 
+      margin-top: 0.3rem;
+      border-radius: 10px; 
+      background: white; 
+      border: none; 
+      color: #333; 
+      font-size: 1rem; 
+    }
+
+    .settings-label { font-size: 0.8rem; color: #aaa; font-weight: bold; display: block; margin-top: 0.8rem; }
+
+    .settings-row { display: flex; gap: 10px; margin-top: 1.5rem; }
+    
+    .settings-btn { 
+      flex: 1; 
+      padding: 0.8rem; 
+      border: none; 
+      border-radius: 12px; 
+      font-weight: bold; 
+      cursor: pointer; 
+      font-size: 1rem;
+    }
+    .settings-btn-save { background: #2ecc71; color: white; }
+    .settings-btn-cancel { background: rgba(255,255,255,0.1); color: white; }
+
+    /* רשת השיעורים */
+    .lessons-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+      gap: 12px; 
+      margin-top: 1.5rem; 
+    }
+    .lesson-card { 
+      background: white; 
+      padding: 1.2rem; 
+      border-radius: 15px; 
+      text-align: center; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
 <section id="login-screen">
   <div class="ls-header">
-    <div class="ls-logo-wrap"><span class="ls-logo">📚</span></div>
-    <h1 class="ls-title"><em>לשון</em> Lesson</h1>
-    <p class="ls-sub">פלטפורמה דיגיטלית ללימודי עברית</p>
+    <h1 style="font-family:'Secular One'; color:white; font-size:2.2rem; margin:0;"><em>לשון</em> Lesson</h1>
+    <p style="color:rgba(255,255,255,0.5);">פלטפורמה דיגיטלית ללימודי עברית</p>
   </div>
   
   <div class="ls-cards">
-    <button class="lc lc-student" onclick="goToLessons()">
-      <div class="lc-icon-wrap">👨‍🎓</div>
-      <div class="lc-text">
-        <span class="lc-label">תלמיד/ה</span>
-        <span class="lc-desc">גש לשיעורים והשלם דפי עבודה</span>
+    <div class="lc" onclick="goToLessons()" style="background: rgba(77, 138, 255, 0.15);">
+      <span style="font-size:1.5rem;">👨‍🎓</span>
+      <div style="text-align:right;">
+        <div style="font-weight:bold;">תלמיד/ה</div>
+        <div style="font-size:0.75rem; opacity:0.6;">כניסה לשיעורים ותרגול</div>
       </div>
-      <span class="lc-arrow">←</span>
-    </button>
+    </div>
     
-    <button class="lc lc-teacher" onclick="toggleTeacherSettings()">
-      <div class="lc-icon-wrap">👩‍🏫</div>
-      <div class="lc-text">
-        <span class="lc-label">מורה</span>
-        <span class="lc-desc">הגדר פרטים וקבל דפי עבודה</span>
+    <div class="lc" onclick="toggleTeacherSettings()" style="background: rgba(202, 138, 4, 0.15);">
+      <span style="font-size:1.5rem;">👩‍🏫</span>
+      <div style="text-align:right;">
+        <div style="font-weight:bold;">מורה</div>
+        <div style="font-size:0.75rem; opacity:0.6;">הגדרת פרטים לקבלת תוצרים</div>
       </div>
-      <span class="lc-arrow">←</span>
-    </button>
+    </div>
     
     <div class="teacher-settings" id="teacher-panel">
-      <div>
-        <label class="settings-label">שם מלא</label>
-        <input type="text" id="teacher-name" class="settings-input" placeholder="שם המורה...">
-      </div>
-      <div style="margin-top: 0.75rem;">
-        <label class="settings-label">דוא״ל</label>
-        <input type="email" id="teacher-email" class="settings-input" placeholder="אימייל למשלוח דפים">
-      </div>
-      <div style="margin-top: 0.75rem;">
-        <label class="settings-label">וואטסאפ</label>
-        <input type="text" id="teacher-whatsapp" class="settings-input" placeholder="+972501234567">
-      </div>
+      <label class="settings-label">שם המורה</label>
+      <input type="text" id="teacher-name" class="settings-input" placeholder="למשל: ליאור">
+      
+      <label class="settings-label">דוא״ל</label>
+      <input type="email" id="teacher-email" class="settings-input" placeholder="example@gmail.com">
+      
+      <label class="settings-label">וואטסאפ</label>
+      <input type="text" id="teacher-whatsapp" class="settings-input" placeholder="050-0000000">
+      
       <div class="settings-row">
-        <button class="settings-btn settings-btn-save" onclick="saveTeacherSettings()">✓ שמור</button>
+        <button class="settings-btn settings-btn-save" onclick="saveTeacherSettings()">שמור וכנס</button>
         <button class="settings-btn settings-btn-cancel" onclick="toggleTeacherSettings()">ביטול</button>
       </div>
-      <p style="font-size: 0.6rem; color: rgba(255, 255, 255, 0.14); text-align: center; margin-top: 0.55rem;">
-        הפרטים נשמרים בעננים ונמסרים בעת קבלת דפי עבודה.
-      </p>
     </div>
   </div>
 </section>
 
-<section id="lessons-view" style="display: none; padding: 2rem 1.5rem; background: var(--bg); min-height: 100vh;">
-  <div style="max-width: 1000px; margin: 0 auto;">
-    <button onclick="backToLogin()" style="margin-bottom: 1.5rem; padding: 8px 16px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'Heebo', sans-serif; font-weight: 700; min-height: 44px;">← חזרה</button>
-    <h1 style="font-family: 'Secular One', sans-serif; color: var(--text); margin-bottom: 2rem;">🎓 בחר/י שיעור</h1>
-    
-    <div class="lessons-grid">
-      <div class="lesson-card" onclick="openLesson('lesson1_refactored.html')">
-        <div class="lesson-icon">📖</div>
-        <div class="lesson-title">שיעור 1</div>
-        <div class="lesson-meta">השורש ושבעת הבניינים</div>
-      </div>
-      <div class="lesson-card" onclick="openLesson('lesson2_refactored.html')">
-        <div class="lesson-icon">✏️</div>
-        <div class="lesson-title">שיעור 2</div>
-        <div class="lesson-meta">בניין קַל (פָּעַל)</div>
-      </div>
-      <div class="lesson-card" onclick="openLesson('lesson3_binyanim_kvedim_v3.html')">
-        <div class="lesson-icon">🎯</div>
-        <div class="lesson-title">שיעור 3</div>
-        <div class="lesson-meta">בניינים כבדים</div>
-      </div>
-      <div class="lesson-card" onclick="openLesson('lesson4_hifil_hufal_v3.html')">
-        <div class="lesson-icon">⚡</div>
-        <div class="lesson-title">שיעור 4</div>
-        <div class="lesson-meta">הִפְעִיל וְהֻפְעַל</div>
-      </div>
-      <div class="lesson-card" onclick="openLesson('lesson5_summary_mruba_v3.html')">
-        <div class="lesson-icon">🏁</div>
-        <div class="lesson-title">שיעור 5</div>
-        <div class="lesson-meta">סיכום ודוגמאות מרובות</div>
-      </div>
-      <div class="lesson-card" onclick="openLesson('lesson6_bagrut_exam_v3.html')">
-        <div class="lesson-icon">🎓</div>
-        <div class="lesson-title">שיעור 6</div>
-        <div class="lesson-meta">בחינת בגרות</div>
-      </div>
-    </div>
+<section id="lessons-view" style="display: none; padding: 1.5rem;">
+  <button onclick="backToLogin()" style="background:#eee; border:none; padding:8px 15px; border-radius:10px; margin-bottom:1rem;">← חזרה</button>
+  <h2 style="font-family:'Secular One';">🎓 רשימת שיעורים</h2>
+  <div class="lessons-grid">
+    <div class="lesson-card" onclick="openLesson('lesson1_refactored.html')">📖<br><b>שיעור 1</b><br><small>השורש</small></div>
+    <div class="lesson-card" onclick="openLesson('lesson2_refactored.html')">✏️<br><b>שיעור 2</b><br><small>בניין קל</small></div>
+    <div class="lesson-card" onclick="openLesson('lesson3_binyanim_kvedim_v3.html')">🎯<br><b>שיעור 3</b><br><small>כבדים</small></div>
   </div>
 </section>
 
 <script src="shared-logic.js"></script>
-
 <script>
-  // פונקציה להצגת/הסתרת פאנל המורה
   function toggleTeacherSettings() {
     const panel = document.getElementById('teacher-panel');
-    const teacher = (typeof loadTeacherDetails === 'function') ? loadTeacherDetails() : {};
-    
-    if (panel.classList.contains('open')) {
-      panel.classList.remove('open');
-    } else {
-      panel.classList.add('open');
-      if (teacher.name) document.getElementById('teacher-name').value = teacher.name;
-      if (teacher.email) document.getElementById('teacher-email').value = teacher.email;
-      if (teacher.whatsapp) document.getElementById('teacher-whatsapp').value = teacher.whatsapp;
+    panel.classList.toggle('open');
+    if(panel.classList.contains('open')) {
+       panel.scrollIntoView({ behavior: 'smooth' }); // גולל אוטומטית לכפתור השמירה
     }
   }
 
-  // שמירת פרטי מורה ומעבר לרשימת השיעורים
   function saveTeacherSettings() {
     const name = document.getElementById('teacher-name').value.trim();
-    const email = document.getElementById('teacher-email').value.trim();
-    const whatsapp = document.getElementById('teacher-whatsapp').value.trim();
-    
-    if (!name) {
-      alert('אנא הקלידו את שם המורה');
-      return;
-    }
+    if (!name) { alert('אנא הקלידו שם'); return; }
 
     if (typeof saveTeacherDetails === 'function') {
-      saveTeacherDetails(name, email, whatsapp).then(() => {
-        alert('✓ הפרטים נשמרו בהצלחה!');
-        enterPlatform();
-      }).catch(() => {
-        enterPlatform();
-      });
+      saveTeacherDetails(name, document.getElementById('teacher-email').value, document.getElementById('teacher-whatsapp').value)
+      .then(() => enterPlatform());
     } else {
       enterPlatform();
     }
   }
 
-  function goToLessons() {
-    enterPlatform();
-  }
+  function goToLessons() { enterPlatform(); }
 
   function enterPlatform() {
     document.getElementById('login-screen').style.display = 'none';
@@ -211,11 +183,7 @@
     document.getElementById('login-screen').style.display = 'flex';
   }
 
-  function openLesson(filename) {
-    if (filename) {
-      window.location.href = filename;
-    }
-  }
+  function openLesson(file) { window.location.href = file; }
 </script>
 </body>
 </html>
