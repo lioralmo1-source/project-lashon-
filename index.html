@@ -165,20 +165,7 @@
 <script src="shared-logic.js"></script>
 
 <script>
-  function toggleTeacherSettings() {
-    const panel = document.getElementById('teacher-panel');
-    const teacher = loadTeacherDetails();
-    if (panel.classList.contains('open')) {
-      panel.classList.remove('open');
-    } else {
-      panel.classList.add('open');
-      if (teacher.name) document.getElementById('teacher-name').value = teacher.name;
-      if (teacher.email) document.getElementById('teacher-email').value = teacher.email;
-      if (teacher.whatsapp) document.getElementById('teacher-whatsapp').value = teacher.whatsapp;
-    }
-  }
-  
- function saveTeacherSettings() {
+  function saveTeacherSettings() {
     const name = document.getElementById('teacher-name').value.trim();
     const email = document.getElementById('teacher-email').value.trim();
     const whatsapp = document.getElementById('teacher-whatsapp').value.trim();
